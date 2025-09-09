@@ -652,18 +652,27 @@
         .before-after-gallery {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 30px;
             margin-top: 60px;
+        }
+        
+        .before-after-gallery.elegant-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(150px, auto);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 60px auto 0;
         }
 
         .before-after-item {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid rgba(146, 245, 248, 0.2);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+            border-radius: 12px;
+            padding: 0;
+            border: 1px solid rgba(44, 62, 80, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .before-after-item:hover {
@@ -673,18 +682,55 @@
         }
 
         .before-after-single-image {
-            margin-bottom: 25px;
             position: relative;
-            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            height: 280px;
+            background: #f5f5f5;
+        }
+        
+        .before-after-single-image.tall {
+            height: 400px;
+        }
+        
+        .before-after-item.tall-image {
+            grid-row: span 2;
+        }
+        
+        @media (max-width: 1024px) {
+            .before-after-gallery.elegant-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .before-after-single-image.tall {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .before-after-gallery.elegant-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .before-after-item.tall-image {
+                grid-row: span 1;
+            }
+            
+            .before-after-single-image.tall {
+                height: 400px;
+            }
         }
 
         .before-after-single-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .before-after-single-image.tall img {
+            object-fit: contain;
+            background: #f5f5f5;
         }
 
         .before-after-single-image:hover img {
@@ -693,20 +739,24 @@
 
         .before-after-description {
             text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(248,249,250,0.5) 100%);
         }
 
         .before-after-description h4 {
             font-family: var(--font-heading);
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            font-size: 1.2rem;
-            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
         }
 
         .before-after-description p {
             color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            opacity: 0.8;
         }
 
         .results-disclaimer {
@@ -2101,8 +2151,8 @@
                 <span style="display:none; color: white; font-weight: 600; font-size: 1.4rem;">Linde DermaLab</span>
             </div>
             <div class="header-content">
-                <h1>HIFU Ultraformer III Skin Tightening</h1>
-                <p class="subtitle">Professional medical aesthetics in the heart of Marylebone. Science-backed treatments delivered by medical professionals for natural, long-lasting results.</p>
+                <h1>Non-surgical Facelift</h1>
+                <p class="subtitle">Ultraformer III HIFU treatment at Linde DermaLab, Marylebone</p>
                 
                 <div style="margin: 50px 0;">
                     <a href="#consultation" class="btn-primary">Book Free Consultation</a>
@@ -2131,42 +2181,27 @@
         </div>
     </div>
 
-    <!-- Pain Points -->
-    <div class="section section-light pain-points" id="pain-points">
+    <!-- Introduction -->
+    <div class="section section-light introduction" id="introduction">
         <div class="container">
-            <h2>Transform Your Confidence</h2>
-            <p class="section-intro">At Linde DermaLab, we understand the frustrations that come with aging skin. Our Ultraformer III HIFU treatments address these concerns with precision and care.</p>
-            
-            <div class="pain-grid">
-                <div class="pain-card">
-                    <h3>Loss of Facial Definition</h3>
-                    <p>"My jawline has lost its sharpness and my face looks less defined than it used to. I want to restore that youthful contour naturally."</p>
-                </div>
+            <div class="intro-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p class="lead-text" style="font-size: 1.3rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 30px;">As skin loses elasticity, it's natural to notice softening around the jawline, sagging cheeks, or a drooping brow. But not everyone is ready—or willing—for a surgical solution.</p>
                 
-                <div class="pain-card">
-                    <h3>Sagging Skin Concerns</h3>
-                    <p>"I notice sagging around my jawline and neck area. Traditional skincare isn't providing the lifting effect I need."</p>
-                </div>
+                <p style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 30px;">That's where the Ultraformer III comes in. This non-invasive HIFU treatment offers a non-surgical facelift with natural-looking results, zero downtime, and long-lasting collagen stimulation.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- What Makes It Different -->
+    <div class="section section-dark what-different" id="what-different">
+        <div class="container">
+            <h2 style="color: white;">What makes it different?</h2>
+            <div class="difference-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p class="section-intro" style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">Ultraformer III uses high-intensity focused ultrasound (HIFU) to target deep beneath the surface of the skin—all the way to the SMAS layer, the same structure tightened in surgical facelifts.</p>
                 
-                <div class="pain-card">
-                    <h3>Fear of Invasive Procedures</h3>
-                    <p>"I want effective results but I'm concerned about the risks and downtime associated with surgical procedures."</p>
-                </div>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.7; margin-bottom: 25px;">The treatment delivers thermal energy to precise depths, triggering a healing response that lifts and firms the skin over time. No needles, no scalpels, and no downtime.</p>
                 
-                <div class="pain-card">
-                    <h3>Desire for Natural Results</h3>
-                    <p>"I want to look refreshed and rejuvenated, but still like myself. No frozen expressions or artificial appearance."</p>
-                </div>
-                
-                <div class="pain-card">
-                    <h3>Professional Environment</h3>
-                    <p>"I need confidence that I'm receiving treatment from qualified medical professionals in a clinical setting."</p>
-                </div>
-                
-                <div class="pain-card">
-                    <h3>Long-term Investment</h3>
-                    <p>"I want treatments that provide lasting results and value for money, not temporary fixes that need constant maintenance."</p>
-                </div>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.7;">Unlike surface-level treatments, HIFU reaches foundational tissues without damaging the outer layer. It's ideal for those looking to redefine their jawline, lift sagging cheeks, or tighten loose skin around the eyes or neck.</p>
             </div>
         </div>
     </div>
@@ -2176,14 +2211,14 @@
         <div class="container">
             <div class="video-content">
                 <h2>See HIFU Treatment in Action</h2>
-                <p class="section-intro">Watch how our professional HIFU treatment works safely and effectively. See the gentle process that delivers real results without the risks.</p>
+                <p class="section-intro">Watch our professional HIFU treatment process and see real results.</p>
                 
                 <div class="video-container">
                     <div class="video-elegant-wrapper">
                         <div class="video-frame">
                             <video 
                                 controls
-                                poster=""
+                                poster="public/images/linde-team.jpg"
                                 preload="metadata"
                                 playsinline
                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
@@ -2203,32 +2238,82 @@
                     <div class="video-feature">
                         <div class="video-feature-icon">👁️</div>
                         <h4>See the Difference</h4>
-                        <p>Watch the actual HIFU Ultraformer III treatment process with our safety protocols</p>
+                        <p>Actual HIFU treatment process</p>
                     </div>
                     
                     <div class="video-feature">
                         <div class="video-feature-icon">🎯</div>
                         <h4>Precision Technology</h4>
-                        <p>Observe how we target specific skin depths while protecting facial structure</p>
+                        <p>Targeted depth treatment</p>
                     </div>
                     
                     <div class="video-feature">
                         <div class="video-feature-icon">👩‍⚕️</div>
                         <h4>Expert Technique</h4>
-                        <p>See our professional approach and why practitioner skill matters</p>
+                        <p>Professional treatment delivery</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- How HIFU Works - Balanced Design -->
-    <div class="section section-dark how-hifu-works" id="technology">
+    <!-- Patient Experience -->
+    <div class="section section-light patient-experience" id="experience">
         <div class="container">
+            <h2>Patient Experience</h2>
+            <div class="experience-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 900px; margin: 50px auto;">
+                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">⏱️</div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">30-60 minute sessions</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Depending on treatment area</p>
+                </div>
+                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">✨</div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">Mild sensation</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Tingling or heat during treatment</p>
+                </div>
+                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">💊</div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">No anaesthetic</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Most patients find it comfortable</p>
+                </div>
+                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">👍</div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">No visible marks</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Zero downtime required</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Timeline -->
+    <div class="section section-dark results-timeline" id="timeline" style="background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%); color: white; padding: 80px 0;">
+        <div class="container">
+            <h2 style="color: white; text-align: center;">Results Timeline</h2>
+            <div class="timeline-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 900px; margin: 50px auto;">
+                <div class="timeline-card" style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--teal-color); margin-bottom: 10px;">4-6 weeks</div>
+                    <p style="color: rgba(255,255,255,0.9);">Gradual lift begins after treatment</p>
+                </div>
+                <div class="timeline-card" style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--teal-color); margin-bottom: 10px;">10-12 weeks</div>
+                    <p style="color: rgba(255,255,255,0.9);">Full results become visible</p>
+                </div>
+                <div class="timeline-card" style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--teal-color); margin-bottom: 10px;">Annually</div>
+                    <p style="color: rgba(255,255,255,0.9);">Most need only one session per area</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How HIFU Works - Simplified -->
+    <div class="section section-light how-hifu-works" id="technology">
+        <div class="container" style="text-align: center;">
             <div class="section-header-elegant">
                 <div class="accent-line"></div>
-                <h2>The Science of HIFU</h2>
-                <p class="section-intro">Precision ultrasound technology that reaches the SMAS layer - the same tissue targeted in surgical facelifts</p>
+                <h2>How HIFU Works</h2>
+                <p class="section-intro">Focused ultrasound reaches the SMAS layer at 4.5mm depth - the same tissue targeted in surgical facelifts</p>
             </div>
             
             <!-- Centered Image with Technology Info -->
@@ -2236,63 +2321,26 @@
                 <div class="image-container-centered">
                     <img src="public/images/how HIFU works.webp" alt="HIFU Technology - Medical Illustration" class="hifu-diagram">
                 </div>
-                <div class="technology-caption">
-                    <h3>Ultraformer III SMAS Technology</h3>
-                    <p>Medical-grade focused ultrasound reaching multiple tissue depths</p>
-                </div>
             </div>
             
-            <!-- Process Steps in Grid -->
+            <!-- Simplified Process Steps -->
             <div class="hifu-process-grid">
                 <div class="process-step-elegant">
-                    <div class="step-icon">🎯</div>
-                    <h4>Precise Focusing</h4>
-                    <p>Ultrasound energy focused at exact depths without surface damage</p>
+                    <span class="step-number">1</span>
+                    <h4>Target</h4>
+                    <p>Ultrasound focuses at three precise depths</p>
                 </div>
                 
                 <div class="process-step-elegant">
-                    <div class="step-icon">📍</div>
-                    <h4>SMAS Targeting</h4>
-                    <p>Reaches the foundational layer at 4.5mm depth</p>
+                    <span class="step-number">2</span>
+                    <h4>Heat</h4>
+                    <p>Thermal energy stimulates collagen production</p>
                 </div>
                 
                 <div class="process-step-elegant">
-                    <div class="step-icon">🔥</div>
-                    <h4>Thermal Points</h4>
-                    <p>Creates controlled micro-injuries at 60-70°C</p>
-                </div>
-                
-                <div class="process-step-elegant">
-                    <div class="step-icon">✨</div>
-                    <h4>Collagen Renewal</h4>
-                    <p>Natural regeneration over 3-6 months</p>
-                </div>
-            </div>
-            
-            <!-- Elegant Comparison Section -->
-            <div class="treatment-advantages">
-                <h3>The Medical-Grade Advantage</h3>
-                <div class="advantages-grid">
-                    <div class="advantage-item">
-                        <div class="advantage-icon">🏥</div>
-                        <h5>Clinical Precision</h5>
-                        <p>Medical-grade equipment with real-time imaging for accurate treatment delivery</p>
-                    </div>
-                    <div class="advantage-item">
-                        <div class="advantage-icon">🎯</div>
-                        <h5>Triple-Depth Treatment</h5>
-                        <p>Simultaneous targeting at 1.5mm, 3.0mm, and 4.5mm for comprehensive results</p>
-                    </div>
-                    <div class="advantage-item">
-                        <div class="advantage-icon">⏱️</div>
-                        <h5>No Downtime</h5>
-                        <p>Return to your daily activities immediately with no recovery period required</p>
-                    </div>
-                    <div class="advantage-item">
-                        <div class="advantage-icon">🔬</div>
-                        <h5>Proven Science</h5>
-                        <p>FDA-cleared technology with extensive clinical studies demonstrating safety and efficacy</p>
-                    </div>
+                    <span class="step-number">3</span>
+                    <h4>Lift</h4>
+                    <p>Visible results develop over 3-6 months</p>
                 </div>
             </div>
         </div>
@@ -2379,13 +2427,13 @@
         /* Centered Image Section */
         .hifu-image-section {
             text-align: center;
-            margin: 60px 0 80px;
+            margin: 60px auto 40px;
             position: relative;
             z-index: 2;
         }
 
         .image-container-centered {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             position: relative;
             background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
@@ -2470,22 +2518,24 @@
             font-weight: 300;
         }
 
-        /* Process Grid */
+        /* Process Grid - 3 columns */
         .hifu-process-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-bottom: 60px;
             position: relative;
             z-index: 2;
+            max-width: 700px;
+            margin: 60px auto 0;
+            padding: 0;
         }
 
         .process-step-elegant {
             text-align: center;
-            padding: 40px 30px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-            border: 1px solid rgba(146, 245, 248, 0.2);
-            border-radius: 20px;
+            padding: 40px 25px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -2522,18 +2572,31 @@
 
         .process-step-elegant h4 {
             font-family: var(--font-heading);
-            color: var(--accent-light);
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 12px;
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 15px;
             letter-spacing: -0.01em;
         }
 
         .process-step-elegant p {
-            color: rgba(255,255,255,0.9);
-            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
             line-height: 1.5;
             font-weight: 300;
+        }
+        
+        .process-step-elegant .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
 
         /* Treatment Advantages */
@@ -2620,8 +2683,8 @@
 
         @media (min-width: 768px) {
             .hifu-process-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 25px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
             }
         }
 
@@ -2670,35 +2733,55 @@
         </div>
     </div>
 
-    <!-- Solution -->
-    <div class="section section-light solution" id="solution">
+    <!-- Suitable For -->
+    <div class="section section-light suitable-for" id="suitable">
         <div class="container">
-            <h2>The Linde DermaLab Difference</h2>
-            <p class="section-intro">Our HIFU Ultraformer III SMAS technology delivers precise, medical-grade skin tightening with proven results in our state-of-the-art Marylebone clinic.</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit">
-                    <span class="benefit-number">01</span>
-                    <h3>Medical Grade Technology</h3>
-                    <p>Ultraformer III SMAS system provides precise targeting of skin layers for optimal lifting and tightening results</p>
+            <h2>Suitable For</h2>
+            <div class="suitable-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 50px auto;">
+                <div class="suitable-card" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">✓ Mild to moderate skin laxity</h4>
+                    <p style="color: var(--text-secondary);">On the face, jawline, neck, or brow</p>
                 </div>
-                
-                <div class="benefit">
-                    <span class="benefit-number">02</span>
-                    <h3>Professional Expertise</h3>
-                    <p>Treatments delivered by qualified medical professionals and advanced skin therapists in a clinical environment</p>
+                <div class="suitable-card" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">✓ Clients seeking visible lift</h4>
+                    <p style="color: var(--text-secondary);">Without surgery or invasive procedures</p>
                 </div>
-                
-                <div class="benefit">
-                    <span class="benefit-number">03</span>
-                    <h3>Natural Results</h3>
-                    <p>Gradual improvements over 8-12 weeks as your natural collagen production is stimulated for authentic-looking results</p>
+                <div class="suitable-card" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">✓ Natural collagen boost</h4>
+                    <p style="color: var(--text-secondary);">Those wanting to stimulate collagen naturally</p>
                 </div>
-                
-                <div class="benefit">
-                    <span class="benefit-number">04</span>
-                    <h3>No Downtime</h3>
-                    <p>Return to your daily activities immediately after treatment with minimal side effects in our luxury clinic setting</p>
+                <div class="suitable-card" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">✓ Safe for all skin tones</h4>
+                    <p style="color: var(--text-secondary);">Suitable for every skin type and tone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Downtime and Aftercare -->
+    <div class="section section-dark aftercare" id="aftercare" style="background: linear-gradient(135deg, #34495E 0%, #2C3E50 100%); color: white; padding: 80px 0;">
+        <div class="container">
+            <h2 style="color: white; text-align: center;">Downtime and Aftercare</h2>
+            <div class="aftercare-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 900px; margin: 50px auto;">
+                <div class="aftercare-card" style="text-align: center; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🚶</div>
+                    <h4 style="color: white; margin-bottom: 10px;">No downtime</h4>
+                    <p style="color: rgba(255,255,255,0.9);">Return to daily activities immediately</p>
+                </div>
+                <div class="aftercare-card" style="text-align: center; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">⏰</div>
+                    <h4 style="color: white; margin-bottom: 10px;">Mild redness</h4>
+                    <p style="color: rgba(255,255,255,0.9);">May last a few hours post-treatment</p>
+                </div>
+                <div class="aftercare-card" style="text-align: center; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">💆</div>
+                    <h4 style="color: white; margin-bottom: 10px;">No restrictions</h4>
+                    <p style="color: rgba(255,255,255,0.9);">Continue your normal skincare routine</p>
+                </div>
+                <div class="aftercare-card" style="text-align: center; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">☀️</div>
+                    <h4 style="color: white; margin-bottom: 10px;">SPF recommended</h4>
+                    <p style="color: rgba(255,255,255,0.9);">Protect your collagen renewal process</p>
                 </div>
             </div>
         </div>
@@ -2708,17 +2791,17 @@
     <div class="section before-after" id="results">
         <div class="container">
             <div class="before-after-content">
-                <h2>Real Results from Real Clients</h2>
-                <p class="section-intro">See the natural, gradual improvements our London clients achieve with professional HIFU treatment at Linde DermaLab</p>
+                <h2>Treatment Results</h2>
+                <p class="section-intro">Real patient transformations at Linde DermaLab</p>
                 
-                <div class="before-after-gallery">
+                <div class="before-after-gallery elegant-grid">
                     <div class="before-after-item">
                         <div class="before-after-single-image">
                             <img src="public/images/before and after images /sandra.jpeg" alt="HIFU Before and After - Jawline Definition & Neck Tightening" />
                         </div>
                         <div class="before-after-description">
-                            <h4>Jawline Definition & Neck Tightening</h4>
-                            <p>Professional HIFU treatment showing improved jawline definition and reduced neck sagging. Natural results developed gradually over 12 weeks.</p>
+                            <h4>Jawline & Neck</h4>
+                            <p>12 weeks post-treatment</p>
                         </div>
                     </div>
                     
@@ -2727,8 +2810,8 @@
                             <img src="public/images/before and after images /before and after 2.jpeg" alt="HIFU Before and After - Natural Facial Lifting" />
                         </div>
                         <div class="before-after-description">
-                            <h4>Natural Facial Lifting</h4>
-                            <p>Medical-grade HIFU treatment with visible lifting and improved skin firmness. Results look completely natural - not "worked on".</p>
+                            <h4>Facial Lifting</h4>
+                            <p>Natural lift achieved</p>
                         </div>
                     </div>
                     
@@ -2737,8 +2820,8 @@
                             <img src="public/images/before and after images /before and after 3.jpeg" alt="HIFU Before and After - Skin Firming Results" />
                         </div>
                         <div class="before-after-description">
-                            <h4>Skin Firming & Contouring</h4>
-                            <p>Ultraformer III treatment with noticeable skin tightening and improved facial contours. Results achieved without any surgical intervention.</p>
+                            <h4>Skin Firming</h4>
+                            <p>Improved contours</p>
                         </div>
                     </div>
                     
@@ -2747,8 +2830,8 @@
                             <img src="public/images/before and after images /before_after_open 4.png" alt="HIFU Before and After - Anti-Aging Results" />
                         </div>
                         <div class="before-after-description">
-                            <h4>Anti-Aging & Rejuvenation</h4>
-                            <p>Professional HIFU treatment showing remarkable improvement in skin texture and firmness. Medical-grade treatment delivered natural-looking results.</p>
+                            <h4>Rejuvenation</h4>
+                            <p>Enhanced texture</p>
                         </div>
                     </div>
                     
@@ -2757,8 +2840,8 @@
                             <img src="public/images/before and after images /Facial Tightening.png" alt="HIFU Before and After - Facial Tightening" />
                         </div>
                         <div class="before-after-description">
-                            <h4>Facial Tightening & Lift</h4>
-                            <p>Advanced HIFU technology providing enhanced facial definition and reduced sagging. Professional treatment with subtle yet effective improvements.</p>
+                            <h4>Facial Tightening</h4>
+                            <p>Defined contours</p>
                         </div>
                     </div>
                     
@@ -2767,15 +2850,35 @@
                             <img src="public/images/before and after images /Screenshot 2025-09-08 at 18.38.08.png" alt="HIFU Before and After - Complete Transformation" />
                         </div>
                         <div class="before-after-description">
-                            <h4>Complete Facial Rejuvenation</h4>
-                            <p>Comprehensive HIFU treatment with skin tightening across multiple areas. Professional medical aesthetics for an overall refreshed appearance.</p>
+                            <h4>Full Face</h4>
+                            <p>Complete transformation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="before-after-item tall-image">
+                        <div class="before-after-single-image tall">
+                            <img src="public/images/before and after images /HIFU - Dermalab Clients/1.png" alt="HIFU Before and After - Linde DermaLab Client Results" />
+                        </div>
+                        <div class="before-after-description">
+                            <h4>Neck Lift</h4>
+                            <p>Dramatic improvement</p>
+                        </div>
+                    </div>
+                    
+                    <div class="before-after-item tall-image">
+                        <div class="before-after-single-image tall">
+                            <img src="public/images/before and after images /HIFU - Dermalab Clients/2.png" alt="HIFU Before and After - Linde DermaLab Client Results" />
+                        </div>
+                        <div class="before-after-description">
+                            <h4>Abdomen Tightening</h4>
+                            <p>Significant skin tightening for loose abdominal skin</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="results-disclaimer">
-                    <h4>Individual Results May Vary</h4>
-                    <p>Results shown represent typical outcomes from our professional HIFU treatments. Results develop gradually over 8-16 weeks as collagen rebuilds naturally. Our medical professionals provide realistic expectations during consultation at Linde DermaLab.</p>
+                    <h4>Results Timeline</h4>
+                    <p>Results develop over 8-16 weeks. Individual results may vary.</p>
                 </div>
             </div>
         </div>
@@ -2902,11 +3005,27 @@
         </div>
     </div>
 
+    <!-- Is This Right For You? -->
+    <div class="section section-light right-for-you" id="right-for-you">
+        <div class="container">
+            <h2>Is this right for you?</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 25px;">
+                    If you're looking to restore firmness and definition to your face without surgery, Ultraformer III may be the perfect fit. It works gradually and subtly—lifting where you need it most, while preserving your natural expression.
+                </p>
+                <p style="font-size: 1.2rem; font-weight: 500; color: var(--primary-color); margin: 30px 0;">
+                    You'll look like yourself. Just fresher, firmer, and more confident.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact -->
     <div class="section contact" id="consultation">
         <div class="container">
-            <h2>Begin Your Transformation</h2>
-            <p class="section-intro">Professional HIFU treatments at Linde DermaLab, Marylebone. Book your comprehensive consultation to discuss your aesthetic goals.</p>
+            <h2>Book Your Consultation</h2>
+            <p class="section-intro">Let your skin show off a little.</p>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;">Book your consultation today or contact us for personalised advice from our expert team.</p>
             
             <div style="text-align: center; margin-bottom: 50px;">
                 <button class="btn-primary" onclick="openBookingModal()" style="font-size: 1.2rem; padding: 20px 45px; margin: 0 10px 20px 10px;">Book Consultation Online</button>
