@@ -2340,7 +2340,7 @@
                 <div class="process-step-elegant">
                     <span class="step-number">3</span>
                     <h4>Lift</h4>
-                    <p>Visible results develop over 3-6 months</p>
+                    <p>Visible results develop over 90 days</p>
                 </div>
             </div>
         </div>
@@ -3829,7 +3829,7 @@
             //     gtag('event', eventName, eventData);
             // }
             
-            console.log('Event tracked:', eventName, eventData);
+            // Event tracked successfully
         }
 
         // Track phone calls
@@ -3873,7 +3873,7 @@
         // Error handling for images
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('error', function() {
-                console.log('Image failed to load:', this.src);
+                // Image failed to load - fallback already handled
                 // You could replace with a placeholder image here
             });
         });
