@@ -28,6 +28,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1088209549850191');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1088209549850191&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
     <style>
         * {
             margin: 0;
@@ -717,6 +735,12 @@
             
             .before-after-single-image.tall {
                 height: 400px;
+            }
+            
+            /* Observ520 mobile styles */
+            .observ520 div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
             }
         }
 
@@ -2782,6 +2806,75 @@
                     <div style="font-size: 2.5rem; margin-bottom: 15px;">☀️</div>
                     <h4 style="color: white; margin-bottom: 10px;">SPF recommended</h4>
                     <p style="color: rgba(255,255,255,0.9);">Protect your collagen renewal process</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Observ520 Skin Analysis Section -->
+    <div class="section section-light observ520" id="observ520">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span style="color: var(--primary-color); font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Advanced Technology</span>
+                <h2 style="margin-top: 15px;">Observ520 Skin Analysis</h2>
+                <p class="section-intro">Precision Diagnostics for Perfect Results</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto;">
+                <!-- Image Section -->
+                <div style="position: relative;">
+                    <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
+                        <img src="public/images/observe520.jpg" alt="Observ520 Skin Analysis revealing underlying skin conditions" 
+                             style="width: 100%; height: auto; display: block;"
+                             onerror="this.src='public/images/skin-analysis.jpg'; this.onerror=null;">
+                    </div>
+                </div>
+                
+                <!-- Content Section -->
+                <div>
+                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--primary-color);">See Beyond the Surface</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
+                        Our state-of-the-art Observ520 skin analysis system uses advanced imaging technology 
+                        to reveal underlying skin conditions invisible to the naked eye, ensuring your HIFU treatment 
+                        targets exactly what needs addressing.
+                    </p>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="font-weight: 600; margin-bottom: 20px; color: var(--primary-color);">What It Reveals:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                                <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
+                                <span>Deep tissue analysis for optimal HIFU depth targeting</span>
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                                <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
+                                <span>Skin elasticity and collagen density mapping</span>
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                                <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
+                                <span>Underlying pigmentation and sun damage</span>
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                                <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
+                                <span>Vascular conditions affecting skin tightness</span>
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                                <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
+                                <span>Precise areas needing lift and rejuvenation</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, rgba(44,62,80,0.05) 0%, rgba(44,62,80,0.02) 100%); border-radius: 15px; padding: 25px;">
+                        <h4 style="font-weight: 600; margin-bottom: 10px; color: var(--primary-color);">Precision Treatment Planning</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                            The Observ520 analysis ensures your HIFU treatment is precisely 
+                            tailored to address your specific skin concerns for optimal lifting and tightening results.
+                        </p>
+                        <button onclick="openBookingModal()" class="btn-primary" style="background: var(--primary-gradient); padding: 12px 30px;">
+                            Book Your Skin Analysis
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
