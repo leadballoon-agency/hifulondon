@@ -2319,60 +2319,63 @@
         </div>
     </div>
 
-    <!-- Special Offer Section -->
-    <div class="section" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 80px 0;">
-        <div class="container">
+    <!-- Special Offer Package -->
+    <div class="section section-dark offer-section" id="offer" style="background: linear-gradient(135deg, rgba(44,62,80,0.95) 0%, rgba(52,73,94,0.95) 100%); padding: 100px 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"%2392f5f8\" fill-opacity=\"0.03\" d=\"M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\"></path></svg>') no-repeat bottom; background-size: cover; opacity: 0.5;"></div>
+        
+        <div class="container" style="position: relative; z-index: 1;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <span style="display: inline-block; padding: 8px 20px; background: rgba(255,59,48,0.1); color: #ff3b30; border-radius: 25px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px;">
-                    LIMITED TIME OFFER
-                </span>
-                <h2 style="margin-bottom: 20px;">Transform Your Look Today</h2>
-                <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                    Book your HIFU treatment now and save £150
-                </p>
+                <h2 style="color: var(--white); font-size: 3rem; margin-bottom: 20px;">Exclusive Package Offer</h2>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.3rem;">Transform your profile with our complete treatment</p>
             </div>
-
-            <div style="max-width: 450px; margin: 0 auto;">
-                <div style="background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); overflow: hidden; transform: translateY(0); transition: transform 0.3s ease;">
-                    <div style="background: var(--primary-gradient); padding: 30px; color: white;">
-                        <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: white;">HIFU Face & Neck Treatment</h3>
-                        <p style="color: rgba(255,255,255,0.9);">Non-surgical facelift with lasting results</p>
+            
+            <div class="offer-container" style="max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.05); border: 2px solid rgba(146, 245, 248, 0.3); border-radius: 20px; padding: 50px; backdrop-filter: blur(10px);">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h3 style="color: var(--white); font-size: 1.8rem; margin-bottom: 20px; font-weight: 600; text-align: center;">Ultraformer III HIFU Treatment</h3>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <span style="text-decoration: line-through; color: rgba(255,255,255,0.5); font-size: 1.5rem;">£700</span>
+                        <div class="offer-price" style="margin: 0;">£350</div>
                     </div>
-                    
-                    <div style="padding: 40px;">
-                        <div style="margin-bottom: 30px;">
-                            <p style="color: #999; text-decoration: line-through; font-size: 1.1rem; margin-bottom: 5px;">Regular Price: £500</p>
-                            <div style="display: flex; align-items: baseline; gap: 10px;">
-                                <span style="font-size: 3rem; font-weight: bold; color: var(--primary-color);">£350</span>
-                                <span style="color: #22c55e; font-weight: 600;">SAVE £150</span>
-                            </div>
+                    <p style="color: #92f5f8; font-size: 1.1rem; text-align: center; font-weight: 500; letter-spacing: 1px; text-shadow: 0 0 10px rgba(146, 245, 248, 0.5);">50% OFF - LIMITED TIME</p>
+                </div>
+                
+                <div style="text-align: center; margin: 30px 0;">
+                    <button class="btn-primary" onclick="openBookingModal()" style="background: linear-gradient(135deg, #92f5f8 0%, #6ee7ea 100%); color: var(--primary-color); font-size: 1.2rem; padding: 18px 45px; font-weight: 600; box-shadow: 0 10px 30px rgba(146, 245, 248, 0.3); border: none; border-radius: 30px; cursor: pointer;">Book Your Consultation Now</button>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: 12px; margin-bottom: 25px;">
+                    <h4 style="color: #92f5f8; font-size: 1.3rem; margin-bottom: 20px; text-align: center; font-weight: 600;">Complete Treatment Includes:</h4>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="color: #92f5f8; font-size: 1.5rem;">✓</span>
+                            <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500;">Full Face Lift</span>
                         </div>
-
-                        <button onclick="openBookingModal()" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem; margin-bottom: 25px;">
-                            Book Your Treatment Now
-                        </button>
-
-                        <div style="space-y: 15px;">
-                            <div style="display: flex; align-items: start; gap: 12px; margin-bottom: 15px;">
-                                <svg style="width: 20px; height: 20px; color: #22c55e; flex-shrink: 0; margin-top: 2px;" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span style="color: var(--text-primary);">Full face and neck treatment</span>
-                            </div>
-                            <div style="display: flex; align-items: start; gap: 12px; margin-bottom: 15px;">
-                                <svg style="width: 20px; height: 20px; color: #22c55e; flex-shrink: 0; margin-top: 2px;" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span style="color: var(--text-primary);">Results visible in 90 days</span>
-                            </div>
-                            <div style="display: flex; align-items: start; gap: 12px;">
-                                <svg style="width: 20px; height: 20px; color: #22c55e; flex-shrink: 0; margin-top: 2px;" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span style="color: var(--text-primary);">No downtime required</span>
-                            </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="color: #92f5f8; font-size: 1.5rem;">✓</span>
+                            <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500;">Eye Lift Treatment</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="color: #92f5f8; font-size: 1.5rem;">✓</span>
+                            <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500;">Jowl Lift & Definition</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="color: #92f5f8; font-size: 1.5rem;">✓</span>
+                            <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500;">Neck Lift & Tightening</span>
                         </div>
                     </div>
+                </div>
+                
+                <ul class="offer-includes" style="margin-bottom: 25px;">
+                    <li>Medical consultation & skin analysis</li>
+                    <li>Ultraformer III SMAS technology</li>
+                    <li>Personalised treatment protocol</li>
+                    <li>Professional aftercare guidance</li>
+                    <li>Follow-up support included</li>
+                </ul>
+                
+                <div class="offer-note" style="background: rgba(146, 245, 248, 0.08); border-left: 3px solid #92f5f8; color: rgba(255, 255, 255, 0.85);">
+                    <strong style="color: #92f5f8;">£25 Redeemable Deposit</strong><br>
+                    Secure your appointment with a £25 deposit, fully redeemable against your treatment cost. Professional consultation with Kerry to ensure HIFU is right for you.
                 </div>
             </div>
         </div>
