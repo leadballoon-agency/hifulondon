@@ -71,7 +71,7 @@
             --primary-light: #34495E;        /* Lighter Navy */
             --accent-color: #2C3E50;         /* Deep Navy - Better contrast */
             --accent-light: #34495E;        /* Lighter Navy */
-            --teal-color: var(--teal-color);          /* Linde DermaLab Teal - consistent */
+            --teal-color: #92f5f8;          /* Linde DermaLab Teal - consistent */
             --teal-light: #B8F9FB;           /* Light Teal */
             
             /* Supporting Colors */
@@ -90,7 +90,7 @@
             --primary-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
             --accent-gradient: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
             --dark-gradient: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-            --teal-gradient: linear-gradient(135deg, var(--teal-color) 0%, var(--teal-color) 100%);
+            --teal-gradient: linear-gradient(135deg, #92f5f8 0%, #6ee7ea 100%);
             
             /* Typography Scale - Consistent Sizes */
             --font-heading: 'Playfair Display', serif;
@@ -117,7 +117,7 @@
             --space-4xl: 96px;
             
             /* Section Padding - Consistent */
-            --section-padding: var(--section-padding);
+            --section-padding: 80px 0;
             --section-padding-lg: 96px 0;
             
             /* Border Radius - Consistent */
@@ -525,16 +525,7 @@
             color: var(--white);
         }
 
-        /* Typography */
-        h2 {
-            font-family: var(--font-heading);
-            font-size: 2.8rem;
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-            text-align: center;
-        }
+        /* Typography - Using global h2 styles from above */
 
         .section-dark h2 {
             color: var(--white);
@@ -618,8 +609,6 @@
                 font-size: 1.3rem;
                 margin-bottom: var(--space-sm);
             }
-        }
-            font-weight: 600;
         }
 
         .pain-card p {
@@ -820,9 +809,9 @@
             }
             
             /* Observ520 mobile styles */
-            .observ520 div[style*="grid-template-columns: 1fr 1fr"] {
-                grid-template-columns: 1fr !important;
-                gap: 40px !important;
+            .observ520 .two-column-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
             }
         }
 
@@ -947,7 +936,7 @@
         .testimonials h2 {
             position: relative;
             z-index: 2;
-            font-size: 4rem;
+            font-size: var(--h2-size);
             font-weight: 200;
             margin-bottom: var(--space-sm);
             letter-spacing: -2px;
@@ -1520,7 +1509,7 @@
             }
 
             h2 {
-                font-size: 3.2rem;
+                font-size: var(--h2-size);
             }
 
             .pain-grid {
@@ -1825,7 +1814,7 @@
 
         .offer-price {
             font-family: var(--font-heading);
-            font-size: 4rem;
+            font-size: var(--h2-size);
             font-weight: 700;
             margin-bottom: var(--space-xs);
             color: var(--white);
@@ -2317,7 +2306,7 @@
                 <p class="section-intro">See beneath the surface to create your personalised treatment plan</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center; max-width: 1200px; margin: 0 auto;">
+            <div class="two-column-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center; max-width: 1200px; margin: 0 auto;">
                 <!-- Image Section -->
                 <div style="position: relative;">
                     <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);">
@@ -3055,7 +3044,7 @@
 
         @media (min-width: 1024px) {
             .section-header-elegant h2 {
-                font-size: 4rem;
+                font-size: var(--h2-size);
             }
             
             .depth-indicators {
