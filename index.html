@@ -71,23 +71,67 @@
             --primary-light: #34495E;        /* Lighter Navy */
             --accent-color: #2C3E50;         /* Deep Navy - Better contrast */
             --accent-light: #34495E;        /* Lighter Navy */
-            --teal-color: #92f5f8;          /* Linde DermaLab Teal - for decorative only */
-            --teal-light: #B8F9FB;           /* Light Teal - for decorative only */
+            --teal-color: var(--teal-color);          /* Linde DermaLab Teal - consistent */
+            --teal-light: #B8F9FB;           /* Light Teal */
             
             /* Supporting Colors */
             --white: #FFFFFF;
+            --black: #000000;
+            --dark-bg: #1a2332;
             --light-bg: #F8F9FA;
+            --grey-bg: #f5f5f5;
             --text-primary: #2C3E50;
             --text-secondary: #5D6D7E;
             --text-light: rgba(255, 255, 255, 0.9);
+            --text-light-80: rgba(255, 255, 255, 0.8);
+            --text-light-70: rgba(255, 255, 255, 0.7);
             
             /* Gradients */
             --primary-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
             --accent-gradient: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
+            --dark-gradient: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+            --teal-gradient: linear-gradient(135deg, var(--teal-color) 0%, var(--teal-color) 100%);
             
-            /* Typography */
+            /* Typography Scale - Consistent Sizes */
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
+            
+            /* Font Sizes - Standardized */
+            --h1-size: 3.5rem;     /* Hero headings */
+            --h2-size: 2.5rem;     /* Section headings */
+            --h3-size: 1.8rem;     /* Sub-headings */
+            --h4-size: 1.3rem;     /* Card headings */
+            --body-large: 1.1rem;  /* Intro paragraphs */
+            --body-normal: 1rem;   /* Regular text */
+            --body-small: 0.9rem;  /* Small text */
+            --body-xs: 0.85rem;    /* Extra small */
+            
+            /* Spacing Scale - Multiples of 8 */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+            --space-3xl: 80px;
+            --space-4xl: 96px;
+            
+            /* Section Padding - Consistent */
+            --section-padding: var(--section-padding);
+            --section-padding-lg: 96px 0;
+            
+            /* Border Radius - Consistent */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-pill: 30px;
+            
+            /* Shadows - Three Levels */
+            --shadow-sm: 0 5px 15px rgba(0,0,0,0.08);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.12);
+            --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
+            --shadow-teal: 0 10px 30px rgba(146, 245, 248, 0.3);
         }
 
         body {
@@ -95,6 +139,61 @@
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--white);
+            font-size: var(--body-normal);
+        }
+        
+        /* Global Typography Styles */
+        h1 {
+            font-family: var(--font-heading);
+            font-size: var(--h1-size);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-family: var(--font-heading);
+            font-size: var(--h2-size);
+            line-height: 1.3;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+        
+        h3 {
+            font-family: var(--font-heading);
+            font-size: var(--h3-size);
+            line-height: 1.4;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+        
+        h4 {
+            font-family: var(--font-body);
+            font-size: var(--h4-size);
+            line-height: 1.5;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+        
+        p {
+            font-size: var(--body-normal);
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .section-intro {
+            font-size: var(--body-large);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+        
+        /* Consistent Section Spacing */
+        .section {
+            padding: var(--section-padding);
+        }
+        
+        .section-lg {
+            padding: var(--section-padding-lg);
         }
 
         .container {
@@ -160,7 +259,7 @@
             font-family: var(--font-heading);
             font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             line-height: 1.2;
             letter-spacing: -0.02em;
             padding: 0 15px;
@@ -175,7 +274,7 @@
         @media (min-width: 768px) {
             .header h1 {
                 font-size: 2.8rem;
-                margin-bottom: 20px;
+                margin-bottom: var(--space-md);
                 padding: 0;
             }
         }
@@ -187,7 +286,7 @@
         }
 
         .header .subtitle {
-            font-size: 0.95rem;
+            font-size: var(--body-normal);
             margin-bottom: 25px;
             font-weight: 400;
             opacity: 0.95;
@@ -204,7 +303,7 @@
         @media (min-width: 768px) {
             .header .subtitle {
                 font-size: 1.2rem;
-                margin-bottom: 30px;
+                margin-bottom: var(--space-lg);
                 max-width: 700px;
                 margin-left: auto;
                 margin-right: auto;
@@ -269,13 +368,13 @@
         @media (min-width: 768px) {
             .badge {
                 padding: 20px 15px;
-                border-radius: 12px;
+                border-radius: var(--radius-md);
             }
         }
 
         .badge:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(146, 245, 248, 0.3);
+            box-shadow: var(--shadow-teal);
         }
 
         .badge-number {
@@ -283,7 +382,7 @@
             font-weight: 600;
             display: block;
             margin-bottom: 2px;
-            color: #92f5f8;
+            color: var(--teal-color);
             text-shadow: 0 0 8px rgba(146, 245, 248, 0.4);
         }
         
@@ -292,7 +391,7 @@
                 padding: 10px 8px;
             }
             .badge-number {
-                font-size: 0.9rem;
+                font-size: var(--body-small);
                 margin-bottom: 4px;
             }
         }
@@ -302,7 +401,7 @@
                 padding: 15px 10px;
             }
             .badge-number {
-                font-size: 1.1rem;
+                font-size: var(--body-large);
                 margin-bottom: 6px;
             }
         }
@@ -336,74 +435,57 @@
             }
         }
 
-        /* Buttons */
+        /* Buttons - Consistent Styles */
         .btn-primary {
-            display: block;
-            background: var(--accent-gradient);
+            display: inline-block;
+            background: var(--primary-gradient);
             color: var(--white);
-            padding: 15px 25px;
+            padding: var(--space-sm) var(--space-lg);
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: var(--radius-pill);
+            font-size: var(--body-normal);
             font-weight: 600;
             letter-spacing: 0.5px;
-            text-transform: uppercase;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(146, 245, 248, 0.4);
+            box-shadow: var(--shadow-md);
             border: none;
             cursor: pointer;
-            width: calc(100% - 30px);
-            max-width: 280px;
-            margin: 10px auto;
             text-align: center;
-        }
-        
-        @media (min-width: 480px) {
-            .btn-primary {
-                font-size: 0.95rem;
-                padding: 16px 30px;
-                max-width: 300px;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .btn-primary {
-                display: inline-block;
-                font-size: 1rem;
-                padding: 18px 36px;
-                width: auto;
-                max-width: none;
-                margin: 10px;
-            }
         }
 
         .btn-primary:hover, .btn-primary:focus {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(146, 245, 248, 0.5);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-teal {
+            background: var(--teal-gradient);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-teal);
+        }
+        
+        .btn-teal:hover {
+            box-shadow: var(--shadow-teal);
         }
 
         .btn-secondary {
-            display: block;
+            display: inline-block;
             background: transparent;
             color: var(--white);
-            padding: 15px 25px;
+            padding: var(--space-sm) var(--space-lg);
             text-decoration: none;
-            border: 2px solid rgba(255,255,255,0.9);
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border: 2px solid var(--white);
+            border-radius: var(--radius-pill);
+            font-size: var(--body-normal);
             font-weight: 600;
             letter-spacing: 0.5px;
-            text-transform: uppercase;
             transition: all 0.3s ease;
-            width: calc(100% - 30px);
-            max-width: 280px;
-            margin: 10px auto;
             text-align: center;
         }
         
         @media (min-width: 480px) {
             .btn-secondary {
-                font-size: 0.95rem;
+                font-size: var(--body-normal);
                 padding: 16px 30px;
                 max-width: 300px;
             }
@@ -412,7 +494,7 @@
         @media (min-width: 768px) {
             .btn-secondary {
                 display: inline-block;
-                font-size: 1rem;
+                font-size: var(--body-normal);
                 padding: 18px 36px;
                 width: auto;
                 max-width: none;
@@ -427,7 +509,7 @@
 
         /* Sections */
         .section {
-            padding: 80px 0;
+            padding: var(--section-padding);
         }
 
         .section-light {
@@ -448,7 +530,7 @@
             font-family: var(--font-heading);
             font-size: 2.8rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
             color: var(--text-primary);
             letter-spacing: -0.02em;
             text-align: center;
@@ -504,37 +586,37 @@
         .pain-card {
             background: var(--white);
             padding: 25px 20px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow-sm);
             text-align: left;
             border-left: 4px solid var(--accent-color);
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             transition: all 0.3s ease;
         }
         
         @media (min-width: 768px) {
             .pain-card {
                 padding: 30px 25px;
-                box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+                box-shadow: var(--shadow-md);
             }
         }
 
         .pain-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-lg);
         }
 
         .pain-card h3 {
             font-family: var(--font-heading);
             color: var(--text-primary);
             margin-bottom: 12px;
-            font-size: 1.1rem;
+            font-size: var(--body-large);
             line-height: 1.3;
         }
         
         @media (min-width: 768px) {
             .pain-card h3 {
                 font-size: 1.3rem;
-                margin-bottom: 15px;
+                margin-bottom: var(--space-sm);
             }
         }
             font-weight: 600;
@@ -543,7 +625,7 @@
         .pain-card p {
             color: var(--text-secondary);
             font-style: italic;
-            font-size: 1rem;
+            font-size: var(--body-normal);
             line-height: 1.6;
         }
 
@@ -568,7 +650,7 @@
             font-size: 3rem;
             color: var(--accent-color);
             font-weight: 300;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
             display: block;
             font-family: var(--font-heading);
         }
@@ -576,7 +658,7 @@
         .benefit h3 {
             font-family: var(--font-heading);
             color: var(--text-primary);
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             font-size: 1.3rem;
             font-weight: 600;
         }
@@ -621,7 +703,7 @@
         .process-step h3 {
             font-family: var(--font-heading);
             color: var(--white);
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             font-size: 1.3rem;
             font-weight: 600;
         }
@@ -685,17 +767,17 @@
 
         .before-after-item {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             padding: 0;
             border: 1px solid rgba(44, 62, 80, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: var(--shadow-sm);
         }
 
         .before-after-item:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-lg);
             border-color: rgba(146, 245, 248, 0.3);
         }
 
@@ -771,14 +853,14 @@
             font-family: var(--font-heading);
             color: var(--primary-color);
             margin-bottom: 8px;
-            font-size: 1.1rem;
+            font-size: var(--body-large);
             font-weight: 500;
             letter-spacing: -0.01em;
         }
 
         .before-after-description p {
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: var(--body-xs);
             line-height: 1.4;
             opacity: 0.8;
         }
@@ -786,7 +868,7 @@
         .results-disclaimer {
             background: rgba(255, 255, 255, 0.95);
             border: 1px solid rgba(146, 245, 248, 0.3);
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             padding: 30px;
             margin-top: 50px;
             backdrop-filter: blur(10px);
@@ -795,14 +877,14 @@
         .results-disclaimer h4 {
             font-family: var(--font-heading);
             color: var(--text-primary);
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             font-size: 1.2rem;
             font-weight: 600;
         }
 
         .results-disclaimer p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: var(--body-normal);
             line-height: 1.6;
             font-style: italic;
         }
@@ -867,7 +949,7 @@
             z-index: 2;
             font-size: 4rem;
             font-weight: 200;
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             letter-spacing: -2px;
             background: linear-gradient(180deg, 
                 var(--white) 0%, 
@@ -1063,14 +1145,14 @@
             }
             
             .review-text {
-                font-size: 0.85rem;
+                font-size: var(--body-xs);
                 line-height: 1.5;
                 margin-bottom: 12px;
             }
             
             .review-author {
                 font-size: 0.8rem;
-                margin-top: 15px;
+                margin-top: var(--space-sm);
             }
             
             @keyframes rotateCarouselMobile1 {
@@ -1219,7 +1301,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-size: 1.6rem;
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             letter-spacing: 8px;
             filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
             animation: goldPulse 3s ease-in-out infinite;
@@ -1237,9 +1319,9 @@
         }
 
         .review-text {
-            font-size: 0.95rem;
+            font-size: var(--body-normal);
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             color: rgba(255, 255, 255, 0.9);
             position: relative;
             padding: 10px 0;
@@ -1249,7 +1331,7 @@
         
         @media (min-width: 768px) {
             .review-text {
-                font-size: 1rem;
+                font-size: var(--body-normal);
                 line-height: 1.7;
             }
         }
@@ -1262,7 +1344,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 0.95rem;
+            font-size: var(--body-normal);
             margin-top: 30px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -1284,7 +1366,7 @@
         .practitioner-card {
             background: var(--white);
             padding: 50px 30px;
-            border-radius: 20px;
+            border-radius: var(--radius-xl);
             box-shadow: 0 15px 50px rgba(0,0,0,0.1);
             border: 1px solid rgba(146, 245, 248, 0.2);
             position: relative;
@@ -1312,14 +1394,14 @@
             color: var(--text-primary);
             font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: var(--space-xs);
         }
 
         .clinic-info .subtitle {
             color: var(--accent-color);
-            font-size: 1.1rem;
+            font-size: var(--body-large);
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
             letter-spacing: 0.5px;
         }
 
@@ -1327,7 +1409,7 @@
             font-size: 1.2rem;
             color: var(--text-primary);
             font-style: italic;
-            margin-bottom: 30px;
+            margin-bottom: var(--space-lg);
             line-height: 1.6;
             font-weight: 400;
             position: relative;
@@ -1347,7 +1429,7 @@
             text-align: center;
             padding: 20px 15px;
             background: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             border: 1px solid rgba(146, 245, 248, 0.2);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
@@ -1364,12 +1446,12 @@
             color: var(--accent-color);
             font-weight: 600;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: var(--space-xs);
         }
 
         .credential-text {
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: var(--body-xs);
             font-weight: 500;
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -1391,7 +1473,7 @@
         .contact-item {
             background: var(--white);
             padding: 30px 25px;
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             text-align: center;
             transition: all 0.3s ease;
@@ -1406,7 +1488,7 @@
             font-family: var(--font-heading);
             color: var(--text-primary);
             margin-bottom: 12px;
-            font-size: 1.1rem;
+            font-size: var(--body-large);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -1555,7 +1637,7 @@
         .video-frame {
             position: relative;
             background: #000;
-            border-radius: 20px;
+            border-radius: var(--radius-xl);
             overflow: hidden;
             aspect-ratio: 16 / 9;
         }
@@ -1602,7 +1684,7 @@
             text-align: center;
             padding: 20px 15px;
             background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
+            border-radius: var(--radius-lg);
             border: 1px solid rgba(146, 245, 248, 0.2);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
@@ -1617,21 +1699,21 @@
 
         .video-feature-icon {
             font-size: 2rem;
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             display: block;
         }
 
         .video-feature h4 {
             font-family: var(--font-heading);
             color: var(--text-primary);
-            margin-bottom: 10px;
+            margin-bottom: var(--space-xs);
             font-size: 1.2rem;
             font-weight: 600;
         }
 
         .video-feature p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: var(--body-normal);
             line-height: 1.6;
         }
 
@@ -1650,8 +1732,8 @@
         .comparison-column {
             background: var(--white);
             padding: 30px 25px;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
             transition: all 0.3s ease;
         }
 
@@ -1670,7 +1752,7 @@
 
         .comparison-column h3 {
             font-family: var(--font-heading);
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
             font-size: 1.4rem;
             font-weight: 600;
             text-align: center;
@@ -1696,7 +1778,7 @@
             color: var(--text-secondary);
             position: relative;
             padding-left: 30px;
-            font-size: 1rem;
+            font-size: var(--body-normal);
             line-height: 1.5;
         }
 
@@ -1734,7 +1816,7 @@
             background: rgba(255,255,255,0.05);
             padding: 40px 30px;
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
+            border-radius: var(--radius-xl);
             margin: 40px auto;
             max-width: 600px;
             backdrop-filter: blur(10px);
@@ -1745,7 +1827,7 @@
             font-family: var(--font-heading);
             font-size: 4rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: var(--space-xs);
             color: var(--white);
             text-shadow: 
                 0 0 30px rgba(146, 245, 248, 0.8),
@@ -1793,7 +1875,7 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
             position: relative;
             padding-left: 25px;
-            font-size: 1rem;
+            font-size: var(--body-normal);
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.5;
         }
@@ -1804,7 +1886,7 @@
             left: 0;
             color: var(--accent-light);
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: var(--body-large);
             top: 10px;
         }
 
@@ -1826,8 +1908,8 @@
         .offer-note strong {
             color: var(--accent-light);
             display: block;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            margin-bottom: var(--space-xs);
+            font-size: var(--body-large);
         }
 
         /* Responsive Design for New Sections */
@@ -1926,7 +2008,7 @@
         .navbar-link {
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: var(--body-normal);
             font-weight: 500;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
@@ -1954,12 +2036,12 @@
         
         .navbar-cta {
             background: var(--accent-gradient);
-            color: white;
+            color: var(--white);
             border: none;
             padding: 10px 25px;
             border-radius: 25px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: var(--body-small);
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(146, 245, 248, 0.3);
@@ -2050,8 +2132,8 @@
         }
 
         .footer p {
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: var(--body-normal);
+            margin-bottom: var(--space-md);
             font-weight: 300;
         }
 
@@ -2066,7 +2148,7 @@
         .footer-link {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: var(--body-small);
             font-weight: 400;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
@@ -2074,7 +2156,7 @@
         }
 
         .footer-link:hover {
-            color: #92f5f8;
+            color: var(--teal-color);
             transform: translateY(-1px);
             text-shadow: 0 0 8px rgba(146, 245, 248, 0.4);
         }
@@ -2086,18 +2168,18 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: #92f5f8;
+            background: var(--teal-color);
             transition: width 0.3s ease;
         }
 
         .footer-link:hover::after {
             width: 100%;
-            background: #92f5f8;
+            background: var(--teal-color);
         }
 
         .footer-copyright {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
+            font-size: var(--body-xs);
             font-weight: 300;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 25px;
@@ -2116,7 +2198,7 @@
             }
 
             .footer-link {
-                font-size: 0.95rem;
+                font-size: var(--body-normal);
             }
         }
     </style>
@@ -2171,7 +2253,7 @@
         <div class="navbar-container">
             <div class="navbar-logo">
                 <img src="public/images/new-logo-scaled-e1746157246395-1024x586.png" alt="Linde DermaLab" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; color: white; font-weight: 600; font-size: 1.2rem;">Linde DermaLab</span>
+                <span style="display:none; color: var(--white); font-weight: 600; font-size: 1.2rem;">Linde DermaLab</span>
             </div>
             <div class="navbar-menu">
                 <a href="#pain-points" class="navbar-link">About</a>
@@ -2193,7 +2275,7 @@
             <!-- Hero Logo -->
             <div class="hero-logo">
                 <img src="public/images/new-logo-scaled-e1746157246395-1024x586.png" alt="Linde DermaLab" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display:none; color: white; font-weight: 600; font-size: 1.4rem;">Linde DermaLab</span>
+                <span style="display:none; color: var(--white); font-weight: 600; font-size: 1.4rem;">Linde DermaLab</span>
             </div>
             <div class="header-content">
                 <h1>Non-surgical Facelift</h1>
@@ -2229,16 +2311,16 @@
     <!-- Observ520 Skin Analysis Section -->
     <div class="section section-light observ520" id="observ520">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <span style="color: var(--primary-color); font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Step 1: Skin Analysis</span>
-                <h2 style="margin-top: 15px;">Observ520 Advanced Diagnostics</h2>
+            <div style="text-align: center; margin-bottom: var(--space-2xl);">
+                <span style="color: var(--primary-color); font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: var(--body-small);">Step 1: Skin Analysis</span>
+                <h2 style="margin-top: var(--space-sm);">Observ520 Advanced Diagnostics</h2>
                 <p class="section-intro">See beneath the surface to create your personalised treatment plan</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center; max-width: 1200px; margin: 0 auto;">
                 <!-- Image Section -->
                 <div style="position: relative;">
-                    <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
+                    <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);">
                         <img src="public/images/girl-with-freckles.png" alt="Observ520 Skin Analysis revealing underlying skin conditions" 
                              style="width: 100%; height: auto; display: block;">
                     </div>
@@ -2246,49 +2328,49 @@
                 
                 <!-- Content Section -->
                 <div>
-                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--primary-color);">See Beyond the Surface</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
+                    <h3 style="font-size: 2rem; margin-bottom: var(--space-md); color: var(--primary-color);">See Beyond the Surface</h3>
+                    <p style="font-size: var(--body-large); line-height: 1.8; color: var(--text-secondary); margin-bottom: var(--space-lg);">
                         Our state-of-the-art Observ520 skin analysis system uses advanced imaging technology 
                         to reveal underlying skin conditions invisible to the naked eye, ensuring your HIFU treatment 
                         targets exactly what needs addressing.
                     </p>
                     
-                    <div style="margin-bottom: 30px;">
-                        <h4 style="font-weight: 600; margin-bottom: 20px; color: var(--primary-color);">What It Reveals:</h4>
+                    <div style="margin-bottom: var(--space-lg);">
+                        <h4 style="font-weight: 600; margin-bottom: var(--space-md); color: var(--primary-color);">What It Reveals:</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
                                 <span>Deep tissue analysis for optimal HIFU depth targeting</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
                                 <span>Skin elasticity and collagen density mapping</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
                                 <span>Underlying pigmentation and sun damage</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
                                 <span>Vascular conditions affecting skin tightness</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px; font-size: 1.2rem;">✓</span>
                                 <span>Precise areas needing lift and rejuvenation</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <div style="background: linear-gradient(135deg, rgba(146, 245, 248, 0.1) 0%, rgba(146, 245, 248, 0.05) 100%); border-radius: 15px; padding: 25px; border: 2px solid rgba(146, 245, 248, 0.3);">
-                        <h4 style="font-weight: 600; margin-bottom: 10px; color: var(--primary-color);">Precision Treatment Planning</h4>
-                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    <div style="background: linear-gradient(135deg, rgba(146, 245, 248, 0.1) 0%, rgba(146, 245, 248, 0.05) 100%); border-radius: var(--radius-lg); padding: 25px; border: 2px solid rgba(146, 245, 248, 0.3);">
+                        <h4 style="font-weight: 600; margin-bottom: var(--space-xs); color: var(--primary-color);">Precision Treatment Planning</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
                             Our clinical team uses the Observ520 to see beneath your skin's surface, 
                             revealing exactly what needs to be addressed for optimal HIFU results.
                         </p>
                         <button onclick="openBookingModal()" class="btn-primary" style="background: var(--primary-gradient); padding: 12px 30px;">
                             Book Your Consultation
                         </button>
-                        <p style="color: var(--primary-color); font-weight: 600; margin-top: 15px; font-size: 0.9rem;">
+                        <p style="color: var(--primary-color); font-weight: 600; margin-top: var(--space-sm); font-size: var(--body-small);">
                             £25 redeemable deposit • Includes complimentary skin analysis
                         </p>
                     </div>
@@ -2339,30 +2421,30 @@
     <!-- Step 2: HIFU Treatment Section -->
     <div class="section section-light" id="treatment-step">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <span style="color: var(--primary-color); font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Step 2: Your HIFU Treatment</span>
-                <h2 style="margin-top: 15px;">Ultraformer III Procedure</h2>
+            <div style="text-align: center; margin-bottom: var(--space-2xl);">
+                <span style="color: var(--primary-color); font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: var(--body-small);">Step 2: Your HIFU Treatment</span>
+                <h2 style="margin-top: var(--space-sm);">Ultraformer III Procedure</h2>
                 <p class="section-intro">Non-surgical facelift with precision and comfort</p>
             </div>
             
             <div style="max-width: 1000px; margin: 0 auto;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px;">
                     <div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 20px;">During Your Treatment</h3>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--space-md);">During Your Treatment</h3>
                         <ul style="list-style: none; padding: 0;">
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px;">⏱</span>
                                 <span><strong>60-90 minutes</strong> treatment time</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px;">🎯</span>
                                 <span><strong>Precision targeting</strong> of SMAS layer at 4.5mm</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px;">💆‍♀️</span>
                                 <span><strong>Comfortable experience</strong> with minimal sensation</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px;">✨</span>
                                 <span><strong>Immediate tightening</strong> with progressive results</span>
                             </li>
@@ -2370,21 +2452,21 @@
                     </div>
                     
                     <div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 20px;">Treatment Areas</h3>
+                        <h3 style="color: var(--primary-color); margin-bottom: var(--space-md);">Treatment Areas</h3>
                         <ul style="list-style: none; padding: 0;">
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px;">✓</span>
                                 <span>Full face lifting and contouring</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px;">✓</span>
                                 <span>Jawline definition and jowl lifting</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px;">✓</span>
                                 <span>Neck tightening and smoothing</span>
                             </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 15px;">
+                            <li style="display: flex; align-items: start; margin-bottom: var(--space-sm);">
                                 <span style="color: var(--primary-color); margin-right: 12px;">✓</span>
                                 <span>Brow lift and eye area rejuvenation</span>
                             </li>
@@ -2392,8 +2474,8 @@
                     </div>
                 </div>
                 
-                <div style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; padding: 35px;">
-                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">Ready to Transform?</h4>
+                <div style="text-align: center; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: var(--radius-lg); padding: 35px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-sm);">Ready to Transform?</h4>
                     <p style="color: var(--text-secondary); margin-bottom: 25px;">Join hundreds of satisfied clients who've achieved natural-looking lifts without surgery</p>
                     <button onclick="openBookingModal()" class="btn-primary" style="padding: 14px 35px;">
                         Book Your HIFU Treatment
@@ -2404,58 +2486,58 @@
     </div>
     
     <!-- Step 3: Results & Aftercare Section -->
-    <div class="section section-dark" id="results-step" style="background: linear-gradient(135deg, #34495E 0%, #2C3E50 100%); padding: 80px 0;">
+    <div class="section section-dark" id="results-step" style="background: var(--dark-gradient); padding: var(--section-padding);">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <span style="color: #92f5f8; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Step 3: Your Transformation</span>
-                <h2 style="margin-top: 15px; color: white;">Results & Aftercare</h2>
-                <p class="section-intro" style="color: rgba(255,255,255,0.9);">Progressive improvement over 90 days with ongoing support</p>
+            <div style="text-align: center; margin-bottom: var(--space-2xl);">
+                <span style="color: var(--teal-color); font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: var(--body-small);">Step 3: Your Transformation</span>
+                <h2 style="margin-top: var(--space-sm); color: var(--white);">Results & Aftercare</h2>
+                <p class="section-intro" style="color: var(--text-light);">Progressive improvement over 90 days with ongoing support</p>
             </div>
             
             <div style="max-width: 1000px; margin: 0 auto;">
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-bottom: 50px;">
                     <div style="text-align: center;">
-                        <div style="color: #92f5f8; font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">Day 1</div>
-                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Immediate tightening and glow</p>
+                        <div style="color: var(--teal-color); font-size: 2.5rem; font-weight: bold; margin-bottom: var(--space-xs);">Day 1</div>
+                        <p style="color: var(--text-light-80); font-size: var(--body-small);">Immediate tightening and glow</p>
                     </div>
                     <div style="text-align: center;">
-                        <div style="color: #92f5f8; font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">Week 2</div>
-                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Collagen production begins</p>
+                        <div style="color: var(--teal-color); font-size: 2.5rem; font-weight: bold; margin-bottom: var(--space-xs);">Week 2</div>
+                        <p style="color: var(--text-light-80); font-size: var(--body-small);">Collagen production begins</p>
                     </div>
                     <div style="text-align: center;">
-                        <div style="color: #92f5f8; font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">Day 30</div>
-                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Visible lifting and firming</p>
+                        <div style="color: var(--teal-color); font-size: 2.5rem; font-weight: bold; margin-bottom: var(--space-xs);">Day 30</div>
+                        <p style="color: var(--text-light-80); font-size: var(--body-small);">Visible lifting and firming</p>
                     </div>
                     <div style="text-align: center;">
-                        <div style="color: #92f5f8; font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">Day 90</div>
-                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Full transformation revealed</p>
+                        <div style="color: var(--teal-color); font-size: 2.5rem; font-weight: bold; margin-bottom: var(--space-xs);">Day 90</div>
+                        <p style="color: var(--text-light-80); font-size: var(--body-small);">Full transformation revealed</p>
                     </div>
                 </div>
                 
-                <div style="background: rgba(146, 245, 248, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
-                    <h3 style="color: #92f5f8; margin-bottom: 20px;">Aftercare Support Includes:</h3>
+                <div style="background: rgba(146, 245, 248, 0.1); border-radius: var(--radius-lg); padding: 30px; margin-bottom: var(--space-lg);">
+                    <h3 style="color: var(--teal-color); margin-bottom: var(--space-md);">Aftercare Support Includes:</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="color: #92f5f8;">✓</span>
-                            <span style="color: rgba(255,255,255,0.9);">24/7 aftercare hotline</span>
+                            <span style="color: var(--teal-color);">✓</span>
+                            <span style="color: var(--text-light);">24/7 aftercare hotline</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="color: #92f5f8;">✓</span>
-                            <span style="color: rgba(255,255,255,0.9);">Follow-up consultations</span>
+                            <span style="color: var(--teal-color);">✓</span>
+                            <span style="color: var(--text-light);">Follow-up consultations</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="color: #92f5f8;">✓</span>
-                            <span style="color: rgba(255,255,255,0.9);">Skincare recommendations</span>
+                            <span style="color: var(--teal-color);">✓</span>
+                            <span style="color: var(--text-light);">Skincare recommendations</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="color: #92f5f8;">✓</span>
-                            <span style="color: rgba(255,255,255,0.9);">Progress tracking</span>
+                            <span style="color: var(--teal-color);">✓</span>
+                            <span style="color: var(--text-light);">Progress tracking</span>
                         </div>
                     </div>
                 </div>
                 
                 <div style="text-align: center;">
-                    <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 25px;">
+                    <p style="color: var(--text-light); font-size: var(--body-large); margin-bottom: 25px;">
                         Results last 12-18 months • No downtime • Return to normal activities immediately
                     </p>
                 </div>
@@ -2466,13 +2548,13 @@
     <!-- What Makes It Different -->
     <div class="section section-dark what-different" id="what-different">
         <div class="container">
-            <h2 style="color: white;">What makes it different?</h2>
+            <h2 style="color: var(--white);">What makes it different?</h2>
             <div class="difference-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
-                <p class="section-intro" style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">Ultraformer III uses high-intensity focused ultrasound (HIFU) to target deep beneath the surface of the skin—all the way to the SMAS layer, the same structure tightened in surgical facelifts.</p>
+                <p class="section-intro" style="color: var(--text-light); font-size: var(--body-large); line-height: 1.8; margin-bottom: 25px;">Ultraformer III uses high-intensity focused ultrasound (HIFU) to target deep beneath the surface of the skin—all the way to the SMAS layer, the same structure tightened in surgical facelifts.</p>
                 
-                <p style="color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.7; margin-bottom: 25px;">The treatment delivers thermal energy to precise depths, triggering a healing response that lifts and firms the skin over time. No needles, no scalpels, and no downtime.</p>
+                <p style="color: var(--text-light-80); font-size: var(--body-normal); line-height: 1.7; margin-bottom: 25px;">The treatment delivers thermal energy to precise depths, triggering a healing response that lifts and firms the skin over time. No needles, no scalpels, and no downtime.</p>
                 
-                <p style="color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.7;">Unlike surface-level treatments, HIFU reaches foundational tissues without damaging the outer layer. It's ideal for those looking to redefine their jawline, lift sagging cheeks, or tighten loose skin around the eyes or neck.</p>
+                <p style="color: var(--text-light-80); font-size: var(--body-normal); line-height: 1.7;">Unlike surface-level treatments, HIFU reaches foundational tissues without damaging the outer layer. It's ideal for those looking to redefine their jawline, lift sagging cheeks, or tighten loose skin around the eyes or neck.</p>
             </div>
         </div>
     </div>
@@ -2483,42 +2565,42 @@
         
         <div class="container" style="position: relative; z-index: 1;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <h2 style="color: var(--white); font-size: 3rem; margin-bottom: 20px;">Exclusive Package Offer</h2>
-                <p style="color: rgba(255,255,255,0.8); font-size: 1.3rem;">Transform your profile with our complete treatment</p>
+                <h2 style="color: var(--white); font-size: 3rem; margin-bottom: var(--space-md);">Exclusive Package Offer</h2>
+                <p style="color: var(--text-light-80); font-size: 1.3rem;">Transform your profile with our complete treatment</p>
             </div>
             
-            <div class="offer-container" style="max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.05); border: 2px solid rgba(146, 245, 248, 0.3); border-radius: 20px; padding: 50px; backdrop-filter: blur(10px);">
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <h3 style="color: var(--white); font-size: 1.8rem; margin-bottom: 20px; font-weight: 600; text-align: center;">Ultraformer III HIFU Treatment</h3>
-                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <div class="offer-container" style="max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.05); border: 2px solid rgba(146, 245, 248, 0.3); border-radius: var(--radius-xl); padding: 50px; backdrop-filter: blur(10px);">
+                <div style="text-align: center; margin-bottom: var(--space-lg);">
+                    <h3 style="color: var(--white); font-size: 1.8rem; margin-bottom: var(--space-md); font-weight: 600; text-align: center;">Ultraformer III HIFU Treatment</h3>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: var(--space-md);">
                         <span style="text-decoration: line-through; color: rgba(255,255,255,0.5); font-size: 1.5rem;">£700</span>
                         <div class="offer-price" style="margin: 0;">£350</div>
                     </div>
-                    <p style="color: #92f5f8; font-size: 1.1rem; text-align: center; font-weight: 500; letter-spacing: 1px; text-shadow: 0 0 10px rgba(146, 245, 248, 0.5);">50% OFF - LIMITED TIME</p>
+                    <p style="color: var(--teal-color); font-size: var(--body-large); text-align: center; font-weight: 500; letter-spacing: 1px; text-shadow: 0 0 10px rgba(146, 245, 248, 0.5);">50% OFF - LIMITED TIME</p>
                 </div>
                 
                 <div style="text-align: center; margin: 30px 0;">
-                    <button class="btn-primary" onclick="openBookingModal()" style="background: linear-gradient(135deg, #92f5f8 0%, #6ee7ea 100%); color: var(--primary-color); font-size: 1.2rem; padding: 18px 45px; font-weight: 600; box-shadow: 0 10px 30px rgba(146, 245, 248, 0.3); border: none; border-radius: 30px; cursor: pointer;">Claim Your Special Offer</button>
+                    <button class="btn-primary" onclick="openBookingModal()" style="background: linear-gradient(135deg, var(--teal-color) 0%, var(--teal-color) 100%); color: var(--primary-color); font-size: 1.2rem; padding: 18px 45px; font-weight: 600; box-shadow: 0 10px 30px rgba(146, 245, 248, 0.3); border: none; border-radius: 30px; cursor: pointer;">Claim Your Special Offer</button>
                 </div>
                 
-                <div style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: 12px; margin-bottom: 25px;">
-                    <h4 style="color: #92f5f8; font-size: 1.3rem; margin-bottom: 20px; text-align: center; font-weight: 600;">Complete Treatment Includes:</h4>
+                <div style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: var(--radius-md); margin-bottom: 25px;">
+                    <h4 style="color: var(--teal-color); font-size: 1.3rem; margin-bottom: var(--space-md); text-align: center; font-weight: 600;">Complete Treatment Includes:</h4>
                     <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span style="color: #92f5f8; font-size: 1.5rem;">✓</span>
-                            <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500;">Full Face Lift</span>
+                            <span style="color: var(--teal-color); font-size: 1.5rem;">✓</span>
+                            <span style="color: var(--text-light); font-size: var(--body-large); font-weight: 500;">Full Face Lift</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span style="color: #92f5f8; font-size: 1.5rem;">✓</span>
-                            <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500;">Eye Lift Treatment</span>
+                            <span style="color: var(--teal-color); font-size: 1.5rem;">✓</span>
+                            <span style="color: var(--text-light); font-size: var(--body-large); font-weight: 500;">Eye Lift Treatment</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span style="color: #92f5f8; font-size: 1.5rem;">✓</span>
-                            <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500;">Jowl Lift & Definition</span>
+                            <span style="color: var(--teal-color); font-size: 1.5rem;">✓</span>
+                            <span style="color: var(--text-light); font-size: var(--body-large); font-weight: 500;">Jowl Lift & Definition</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span style="color: #92f5f8; font-size: 1.5rem;">✓</span>
-                            <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500;">Neck Lift & Tightening</span>
+                            <span style="color: var(--teal-color); font-size: 1.5rem;">✓</span>
+                            <span style="color: var(--text-light); font-size: var(--body-large); font-weight: 500;">Neck Lift & Tightening</span>
                         </div>
                     </div>
                 </div>
@@ -2531,8 +2613,8 @@
                     <li>Follow-up support included</li>
                 </ul>
                 
-                <div class="offer-note" style="background: rgba(146, 245, 248, 0.08); border-left: 3px solid #92f5f8; color: rgba(255, 255, 255, 0.85);">
-                    <strong style="color: #92f5f8;">£25 Redeemable Deposit</strong><br>
+                <div class="offer-note" style="background: rgba(146, 245, 248, 0.08); border-left: 3px solid var(--teal-color); color: rgba(255, 255, 255, 0.85);">
+                    <strong style="color: var(--teal-color);">£25 Redeemable Deposit</strong><br>
                     Secure your appointment with a £25 deposit, fully redeemable against your treatment cost. Professional consultation with Kerry to ensure HIFU is right for you.
                 </div>
             </div>
@@ -2568,7 +2650,7 @@
                             </div>
                         </div>
                         <div class="video-overlay-badge">
-                            <span style="background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%); color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            <span style="background: var(--dark-gradient); color: var(--white); padding: 8px 20px; border-radius: var(--radius-xl); font-size: var(--body-xs); font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                                 ▶ HIFU Treatment in Action
                             </span>
                         </div>
@@ -2603,25 +2685,25 @@
         <div class="container">
             <h2>Patient Experience</h2>
             <div class="experience-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 900px; margin: 50px auto;">
-                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">⏱️</div>
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">30-60 minute sessions</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Depending on treatment area</p>
+                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: var(--radius-md); box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">⏱️</div>
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-xs);">30-60 minute sessions</h4>
+                    <p style="color: var(--text-secondary); font-size: var(--body-normal);">Depending on treatment area</p>
                 </div>
-                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">✨</div>
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">Mild sensation</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Tingling or heat during treatment</p>
+                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: var(--radius-md); box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">✨</div>
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-xs);">Mild sensation</h4>
+                    <p style="color: var(--text-secondary); font-size: var(--body-normal);">Tingling or heat during treatment</p>
                 </div>
-                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">💊</div>
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">No anaesthetic</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Most patients find it comfortable</p>
+                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: var(--radius-md); box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">💊</div>
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-xs);">No anaesthetic</h4>
+                    <p style="color: var(--text-secondary); font-size: var(--body-normal);">Most patients find it comfortable</p>
                 </div>
-                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                    <div style="font-size: 2.5rem; margin-bottom: 15px;">👍</div>
-                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">No visible marks</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Zero downtime required</p>
+                <div class="experience-card" style="text-align: center; padding: 30px; background: white; border-radius: var(--radius-md); box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">👍</div>
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-xs);">No visible marks</h4>
+                    <p style="color: var(--text-secondary); font-size: var(--body-normal);">Zero downtime required</p>
                 </div>
             </div>
         </div>
@@ -2691,7 +2773,7 @@
             font-size: 3.5rem;
             font-weight: 300;
             letter-spacing: -0.03em;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
             background: linear-gradient(135deg, var(--white) 0%, var(--accent-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -2720,7 +2802,7 @@
             margin: 0 auto;
             position: relative;
             background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-            border-radius: 20px;
+            border-radius: var(--radius-xl);
             padding: 4px;
             box-shadow: 0 25px 70px rgba(0,0,0,0.4);
         }
@@ -2776,7 +2858,7 @@
             color: var(--accent-light);
             padding: 8px 16px;
             border-radius: 25px;
-            font-size: 0.85rem;
+            font-size: var(--body-xs);
             font-weight: 500;
             white-space: nowrap;
             backdrop-filter: blur(10px);
@@ -2791,13 +2873,13 @@
             color: var(--accent-light);
             font-size: 1.8rem;
             font-weight: 300;
-            margin-bottom: 10px;
+            margin-bottom: var(--space-xs);
             letter-spacing: -0.02em;
         }
 
         .technology-caption p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1rem;
+            color: var(--text-light);
+            font-size: var(--body-large);
             font-weight: 300;
         }
 
@@ -2818,7 +2900,7 @@
             padding: 40px 25px;
             background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
+            border-radius: var(--radius-lg);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -2848,7 +2930,7 @@
 
         .step-icon {
             font-size: 3rem;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
             display: block;
             filter: saturate(0.8);
         }
@@ -2858,13 +2940,13 @@
             color: var(--white);
             font-size: 1.4rem;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
             letter-spacing: -0.01em;
         }
 
         .process-step-elegant p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1rem;
+            color: var(--text-light-70);
+            font-size: var(--body-normal);
             line-height: 1.5;
             font-weight: 300;
         }
@@ -2879,14 +2961,14 @@
             color: var(--white);
             font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
         }
 
         /* Treatment Advantages */
         .treatment-advantages {
             background: linear-gradient(135deg, rgba(146, 245, 248, 0.1) 0%, rgba(146, 245, 248, 0.05) 100%);
             border: 1px solid rgba(146, 245, 248, 0.2);
-            border-radius: 20px;
+            border-radius: var(--radius-xl);
             padding: 60px 40px;
             position: relative;
             z-index: 2;
@@ -2913,7 +2995,7 @@
             text-align: center;
             padding: 30px 20px;
             background: rgba(255,255,255,0.02);
-            border-radius: 15px;
+            border-radius: var(--radius-lg);
             border: 1px solid rgba(255,255,255,0.1);
             transition: all 0.3s ease;
         }
@@ -2926,14 +3008,14 @@
 
         .advantage-icon {
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
             display: block;
             filter: grayscale(20%);
         }
 
         .advantage-item h5 {
             font-family: var(--font-heading);
-            color: #92f5f8;
+            color: var(--teal-color);
             font-size: 1.2rem;
             font-weight: 500;
             margin-bottom: 12px;
@@ -2941,8 +3023,8 @@
         }
 
         .advantage-item p {
-            color: rgba(255,255,255,0.9);
-            font-size: 0.95rem;
+            color: var(--text-light);
+            font-size: var(--body-normal);
             line-height: 1.5;
             font-weight: 300;
         }
@@ -3021,20 +3103,20 @@
         <div class="container">
             <h2>Suitable For</h2>
             <div class="suitable-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 50px auto;">
-                <div class="suitable-card" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">✓ Mild to moderate skin laxity</h4>
+                <div class="suitable-card" style="padding: 30px; background: white; border-radius: var(--radius-md); box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-sm);">✓ Mild to moderate skin laxity</h4>
                     <p style="color: var(--text-secondary);">On the face, jawline, neck, or brow</p>
                 </div>
-                <div class="suitable-card" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">✓ Clients seeking visible lift</h4>
+                <div class="suitable-card" style="padding: 30px; background: white; border-radius: var(--radius-md); box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-sm);">✓ Clients seeking visible lift</h4>
                     <p style="color: var(--text-secondary);">Without surgery or invasive procedures</p>
                 </div>
-                <div class="suitable-card" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">✓ Natural collagen boost</h4>
+                <div class="suitable-card" style="padding: 30px; background: white; border-radius: var(--radius-md); box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-sm);">✓ Natural collagen boost</h4>
                     <p style="color: var(--text-secondary);">Those wanting to stimulate collagen naturally</p>
                 </div>
-                <div class="suitable-card" style="padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">✓ Safe for all skin tones</h4>
+                <div class="suitable-card" style="padding: 30px; background: white; border-radius: var(--radius-md); box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                    <h4 style="color: var(--primary-color); margin-bottom: var(--space-sm);">✓ Safe for all skin tones</h4>
                     <p style="color: var(--text-secondary);">Suitable for every skin type and tone</p>
                 </div>
             </div>
@@ -3337,7 +3419,7 @@
             position: relative;
             z-index: 2;
             background: #2C3E50;
-            color: white;
+            color: var(--white);
             margin: 0;
             min-height: 100vh;
             overflow-y: auto;
@@ -3345,7 +3427,7 @@
         }
         
         .booking-modal-header {
-            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+            background: var(--dark-gradient);
             padding: 24px 20px;
             position: relative;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -3357,7 +3439,7 @@
             right: 20px;
             background: transparent;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
+            color: var(--white);
             font-size: 24px;
             cursor: pointer;
             width: 40px;
@@ -3373,7 +3455,7 @@
         .modal-close-btn:hover,
         .modal-close-btn:focus {
             background: rgba(255, 255, 255, 0.1);
-            border-color: white;
+            border-color: var(--white);
             transform: scale(1.1);
             outline: 2px solid white;
             outline-offset: 2px;
@@ -3386,7 +3468,7 @@
         
         .modal-title {
             font-family: var(--font-heading);
-            color: white;
+            color: var(--white);
             margin-bottom: 8px;
             font-size: 1.8rem;
             font-weight: 400;
@@ -3395,7 +3477,7 @@
         
         .modal-subtitle {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem;
+            font-size: var(--body-normal);
             margin: 0;
             font-weight: 300;
         }
@@ -3446,21 +3528,21 @@
             background: linear-gradient(135deg, 
                 rgba(146, 245, 248, 0.03) 0%, 
                 rgba(255, 255, 255, 0.01) 100%);
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             border: 1px solid rgba(146, 245, 248, 0.08);
         }
         
         .support-header {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
         }
         
         .support-badge {
             display: inline-block;
             background: rgba(146, 245, 248, 0.1);
-            color: #92f5f8;
+            color: var(--teal-color);
             padding: 6px 16px;
-            border-radius: 20px;
+            border-radius: var(--radius-xl);
             font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 1px;
@@ -3470,10 +3552,10 @@
         
         .support-text {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+            font-size: var(--body-small);
             line-height: 1.5;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
             font-weight: 300;
         }
         
@@ -3488,12 +3570,12 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            color: white;
+            color: var(--white);
             text-decoration: none;
             background: rgba(146, 245, 248, 0.08);
             padding: 12px 24px;
             border-radius: 25px;
-            font-size: 0.95rem;
+            font-size: var(--body-normal);
             font-weight: 400;
             transition: all 0.3s ease;
             border: 1px solid rgba(146, 245, 248, 0.15);
@@ -3537,7 +3619,7 @@
         
         .divider-text {
             color: rgba(146, 245, 248, 0.6);
-            font-size: 0.9rem;
+            font-size: var(--body-small);
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 300;
@@ -3546,7 +3628,7 @@
         .alternative-text {
             color: rgba(255, 255, 255, 0.95);
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: var(--space-lg);
             font-size: 1.3rem;
             font-weight: 200;
             letter-spacing: 1px;
@@ -3561,7 +3643,7 @@
                 rgba(255, 255, 255, 0.02) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(146, 245, 248, 0.15);
-            border-radius: 20px;
+            border-radius: var(--radius-xl);
             padding: 30px 25px;
             max-width: 450px;
             margin: 0 auto;
@@ -3612,7 +3694,7 @@
         }
         
         .kerry-title {
-            color: white;
+            color: var(--white);
             font-size: 1.3rem;
             margin-bottom: 5px;
             font-weight: 300;
@@ -3621,7 +3703,7 @@
         
         .kerry-description {
             color: rgba(146, 245, 248, 0.8);
-            font-size: 0.85rem;
+            font-size: var(--body-xs);
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -3630,13 +3712,13 @@
         
         .kerry-btn {
             display: inline-block;
-            color: white;
+            color: var(--white);
             text-decoration: none;
             font-weight: 400;
             font-size: 1.25rem;
             transition: all 0.3s ease;
             letter-spacing: 1px;
-            margin-bottom: 15px;
+            margin-bottom: var(--space-sm);
         }
         
         .kerry-btn:hover {
@@ -3655,12 +3737,12 @@
         
         .deposit-icon {
             color: rgba(146, 245, 248, 0.9);
-            font-size: 1rem;
+            font-size: var(--body-normal);
         }
         
         .deposit-text {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 0.85rem;
+            font-size: var(--body-xs);
             letter-spacing: 0.3px;
         }
         
@@ -3694,7 +3776,7 @@
             }
             
             .modal-subtitle {
-                font-size: 1.1rem;
+                font-size: var(--body-large);
             }
             
             .booking-modal-content {
@@ -3774,7 +3856,7 @@
                 width: 64px;
                 height: 64px;
                 font-size: 28px;
-                margin-bottom: 20px;
+                margin-bottom: var(--space-md);
             }
             
             .booking-option-title {
@@ -3782,7 +3864,7 @@
             }
             
             .booking-option-description {
-                font-size: 0.95rem;
+                font-size: var(--body-normal);
             }
             
             .booking-iframe-container {
