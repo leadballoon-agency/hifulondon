@@ -276,7 +276,7 @@
             font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: var(--space-md);
-            line-height: 1.1;
+            line-height: 1.15;
             letter-spacing: -0.02em;
             padding: 0 20px;
         }
@@ -289,7 +289,7 @@
         
         @media (min-width: 768px) {
             .header h1 {
-                font-size: 2.8rem;
+                font-size: 3.2rem;
                 margin-bottom: var(--space-md);
                 padding: 0;
             }
@@ -297,7 +297,19 @@
         
         @media (min-width: 1024px) {
             .header h1 {
-                font-size: 3.5rem;
+                font-size: 3.8rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .header h1 {
+                font-size: 4.2rem;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .header h1 {
+                font-size: 4.5rem;
             }
         }
 
@@ -834,8 +846,8 @@
             
             /* Typography Scale for Mobile */
             .header h1 {
-                font-size: 2.8rem !important;
-                line-height: 1.1 !important;
+                font-size: 2.4rem !important;
+                line-height: 1.15 !important;
             }
 
             h1:not(.header h1) {
@@ -982,8 +994,8 @@
         @media (max-width: 480px) {
             /* Hero section should remain prominent */
             .header h1 {
-                font-size: 2.5rem !important;
-                line-height: 1.1 !important;
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
                 margin-bottom: 20px !important;
             }
 
@@ -1698,6 +1710,21 @@
             grid-template-columns: 1fr;
             gap: 25px;
             margin-top: 50px;
+        }
+
+        .contact-grid-centered {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid-centered {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
         }
 
         .contact-item {
@@ -2508,7 +2535,8 @@
                 <span style="display:none; color: var(--white); font-weight: 600; font-size: 1.4rem;">Linde DermaLab</span>
             </div>
             <div class="header-content">
-                <h1>HIFU London - Non-surgical Facelift</h1>
+                <h1>HIFU London</h1>
+                <p class="subtitle" style="font-size: 1.8rem; font-weight: 500; margin-bottom: 15px;">Non-surgical Facelift</p>
                 <p class="subtitle">Ultraformer III HIFU treatment at Linde DermaLab, Marylebone</p>
                 
                 <!-- Hero Video -->
@@ -2520,15 +2548,15 @@
                                 poster="public/images/linde-team.jpg"
                                 preload="metadata"
                                 playsinline
-                                muted
+                                controls
                                 autoplay
                                 loop
                                 style="width: 100%; height: 100%; object-fit: cover;">
                                 <source src="https://storage.googleapis.com/msgsndr/gifJevody1uHQcVkPPPf/media/68bf04bcdd1b2c04a024485f.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <!-- Play/Pause Button -->
-                            <div id="hero-play-button" style="position: absolute; bottom: 15px; right: 15px; width: 40px; height: 40px; background: rgba(0,0,0,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(10px);">
+                            <!-- Play/Pause Button - Hidden since we have controls -->
+                            <div id="hero-play-button" style="display: none;">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                     <path d="M8 5v14l11-7L8 5z" fill="white"/>
                                 </svg>
@@ -2537,8 +2565,9 @@
                     </div>
                 </div>
 
-                <div style="margin: 40px 0;">
-                    <a href="#observ520" class="btn-primary" style="padding: 18px 45px; font-size: 1.15rem; border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 60px rgba(146, 245, 248, 0.2); background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);">Book Consultation (£25 redeemable)</a>
+                <div style="margin: 40px 0; text-align: center;">
+                    <a href="#observ520" class="btn-primary" style="padding: 18px 45px; font-size: 1.15rem; border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 60px rgba(146, 245, 248, 0.2); background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);">Book Consultation</a>
+                    <p style="margin-top: 12px; font-size: 0.9rem; color: rgba(255,255,255,0.8); font-weight: 400;">£25 redeemable against treatment</p>
                 </div>
 
                 <div class="trust-badges">
@@ -2685,8 +2714,8 @@
             <div class="video-content">
                 <!-- Treatment Process Overview -->
                 <div style="text-align: center; margin: 40px 0;">
-                    <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 20px;">What to Expect</h3>
-                    <p style="color: var(--text-light); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 20px;">What to Expect</h3>
+                    <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.6;">
                         Experience our professional Ultraformer III procedure - a comfortable 60-90 minute treatment that delivers natural, progressive results over 90 days.
                     </p>
                 </div>
@@ -3384,7 +3413,7 @@
             <p class="section-intro">Let your skin show off a little.</p>
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 50px;">Contact us for personalised advice from our expert team.</p>
             
-            <div class="contact-grid">
+            <div class="contact-grid-centered" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 50px auto 0;">
                 <div class="contact-item">
                     <h4>Phone</h4>
                     <p><a href="tel:+447414245007" style="color: var(--text-secondary); text-decoration: none;">Kerry: +44 7414 245007</a></p>
