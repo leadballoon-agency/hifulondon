@@ -1855,6 +1855,30 @@
             overflow: hidden;
         }
 
+        /* Play Button Animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(146, 245, 248, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(146, 245, 248, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(146, 245, 248, 0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
         .video-section::before {
             content: '';
             position: absolute;
@@ -2537,12 +2561,12 @@
             <div class="header-content">
                 <h1>HIFU London</h1>
                 <p class="subtitle" style="font-size: 1.8rem; font-weight: 500; margin-bottom: 15px;">Non-surgical Facelift</p>
-                <p class="subtitle">Ultraformer III HIFU treatment at Linde DermaLab, Marylebone</p>
+                <p class="subtitle">Ultraformer III HIFU treatment</p>
                 
                 <!-- Hero Video -->
                 <div class="hero-video-container" style="margin: 40px auto; max-width: 600px;">
-                    <div class="video-elegant-wrapper" style="background: rgba(255,255,255,0.05); border-radius: 20px; padding: 3px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
-                        <div class="video-frame" style="position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden;">
+                    <div class="video-elegant-wrapper" style="background: linear-gradient(135deg, rgba(146, 245, 248, 0.1) 0%, rgba(255,255,255,0.05) 100%); border-radius: 20px; padding: 3px; box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 80px rgba(146, 245, 248, 0.15);">
+                        <div class="video-frame" style="position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #1a2332 0%, #2C3E50 100%);">
                             <video
                                 id="hero-hifu-video"
                                 poster="public/images/linde-team.jpg"
@@ -2555,11 +2579,14 @@
                                 <source src="https://storage.googleapis.com/msgsndr/gifJevody1uHQcVkPPPf/media/68bf04bcdd1b2c04a024485f.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <!-- Play/Pause Button - Hidden since we have controls -->
-                            <div id="hero-play-button" style="display: none;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                    <path d="M8 5v14l11-7L8 5z" fill="white"/>
-                                </svg>
+                            <!-- Animated Play Button Overlay -->
+                            <div id="hero-play-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 10; animation: fadeIn 0.5s ease-out;">
+                                <div class="play-button-animated" style="width: 70px; height: 70px; background: rgba(0,0,0,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(15px); border: 1.5px solid rgba(255, 255, 255, 0.2); cursor: pointer; animation: pulse 3s infinite; transition: all 0.3s ease;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="margin-left: 3px;">
+                                        <path d="M8 5v14l11-7L8 5z" fill="rgba(255,255,255,0.9)"/>
+                                    </svg>
+                                </div>
+                                <p style="color: rgba(255,255,255,0.8); text-align: center; margin-top: 12px; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.5px; text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Click to play</p>
                             </div>
                         </div>
                     </div>
@@ -2683,20 +2710,26 @@
             <div class="hifu-process-grid">
                 <div class="process-step-elegant">
                     <span class="step-number">1</span>
-                    <h4>Target</h4>
-                    <p>Ultrasound focuses at three precise depths</p>
+                    <div class="step-content">
+                        <h4>Target</h4>
+                        <p>Ultrasound focuses at three precise depths</p>
+                    </div>
                 </div>
                 
                 <div class="process-step-elegant">
                     <span class="step-number">2</span>
-                    <h4>Heat</h4>
-                    <p>Thermal energy stimulates collagen production</p>
+                    <div class="step-content">
+                        <h4>Heat</h4>
+                        <p>Thermal energy stimulates collagen production</p>
+                    </div>
                 </div>
                 
                 <div class="process-step-elegant">
                     <span class="step-number">3</span>
-                    <h4>Lift</h4>
-                    <p>Visible results develop over 90 days</p>
+                    <div class="step-content">
+                        <h4>Lift</h4>
+                        <p>Visible results develop over 90 days</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2707,8 +2740,20 @@
         <div class="container">
             <div style="text-align: center; margin-bottom: var(--space-2xl);">
                 <span style="color: var(--primary-color); font-weight: 500; text-transform: uppercase; letter-spacing: 2px; font-size: var(--body-small);">Step 2: Your HIFU Treatment</span>
-                <h2 style="margin-top: var(--space-sm);">See HIFU Treatment in Action</h2>
-                <p class="section-intro">Watch our professional Ultraformer III procedure and understand what to expect</p>
+                <h2 style="margin-top: var(--space-sm);">What Makes It Different?</h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p class="section-intro" style="margin-bottom: 25px;">
+                        Ultraformer III uses high-intensity focused ultrasound (HIFU) to target deep beneath the surface
+                        of the skin—all the way to the SMAS layer, the same structure tightened in surgical facelifts.
+                        The treatment delivers thermal energy to precise depths, triggering a healing response that lifts
+                        and firms the skin over time. No needles, no scalpels, and no downtime.
+                    </p>
+                    <p class="section-intro">
+                        Unlike surface-level treatments, HIFU reaches foundational tissues without damaging the outer
+                        layer. It's ideal for those looking to redefine their jawline, lift sagging cheeks, or tighten loose
+                        skin around the eyes or neck.
+                    </p>
+                </div>
             </div>
 
             <div class="video-content">
@@ -3229,18 +3274,25 @@
             line-height: 1.5;
             font-weight: 300;
         }
+
+        .step-content {
+            flex: 1;
+        }
         
         .process-step-elegant .step-number {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 50px;
             height: 50px;
-            line-height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, rgba(146, 245, 248, 0.15) 0%, rgba(146, 245, 248, 0.08) 100%);
+            border: 1.5px solid rgba(146, 245, 248, 0.4);
             color: var(--white);
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            font-weight: 500;
             margin-bottom: var(--space-md);
+            backdrop-filter: blur(10px);
         }
 
         /* Treatment Advantages */
@@ -3319,9 +3371,75 @@
             .depth-indicators {
                 display: none;
             }
-            
+
             .hifu-process-grid {
-                grid-template-columns: 1fr;
+                display: block;
+                margin: 20px auto 0;
+                padding: 0 20px;
+                background: none;
+            }
+
+            .process-step-elegant {
+                padding: 5px 0;
+                display: flex;
+                align-items: flex-start;
+                text-align: left;
+                gap: 10px;
+                background: none;
+                border: none;
+            }
+
+            .process-step-elegant::before {
+                display: none;
+            }
+
+            .process-step-elegant:hover {
+                transform: none;
+                box-shadow: none;
+                border-color: transparent;
+            }
+
+            .process-step-elegant .step-number {
+                width: 6px;
+                height: 6px;
+                margin-top: 7px;
+                border-radius: 50%;
+                background: rgba(146, 245, 248, 0.6);
+                border: none;
+                flex-shrink: 0;
+                font-size: 0;
+                text-indent: -9999px;
+            }
+
+            .process-step-elegant h4 {
+                display: inline;
+                font-size: 0.95rem;
+                margin-bottom: 0;
+                margin-right: 4px;
+                text-align: left;
+                font-weight: 500;
+            }
+
+            .process-step-elegant p {
+                display: inline;
+                font-size: 0.85rem;
+                line-height: 1.3;
+                text-align: left;
+                margin: 0;
+                opacity: 0.85;
+            }
+
+            .step-content {
+                text-align: left;
+                flex: 1;
+            }
+
+            .how-hifu-works {
+                padding: 60px 0;
+            }
+
+            .section-header-elegant {
+                margin-bottom: 40px;
             }
         }
 
@@ -4289,6 +4407,29 @@
             heroVideo.play().catch(function() {
                 // Autoplay was prevented, that's ok
             });
+        }
+
+        // Hero Video Play Overlay Controls
+        const heroVideoElement = document.getElementById('hero-hifu-video');
+        const playOverlay = document.getElementById('hero-play-overlay');
+
+        if (heroVideoElement && playOverlay) {
+            // Hide overlay when video plays
+            heroVideoElement.addEventListener('play', function() {
+                playOverlay.style.display = 'none';
+            });
+
+            // Show overlay when video is paused
+            heroVideoElement.addEventListener('pause', function() {
+                if (heroVideoElement.currentTime > 0) {
+                    playOverlay.style.display = 'block';
+                }
+            });
+
+            // Initially hide if video autoplays
+            if (!heroVideoElement.paused) {
+                playOverlay.style.display = 'none';
+            }
         }
     </script>
 </body>
