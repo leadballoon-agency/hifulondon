@@ -2511,10 +2511,36 @@
                 <h1>HIFU London - Non-surgical Facelift</h1>
                 <p class="subtitle">Ultraformer III HIFU treatment at Linde DermaLab, Marylebone</p>
                 
-                <div style="margin: 50px 0;">
+                <!-- Hero Video -->
+                <div class="hero-video-container" style="margin: 40px auto; max-width: 600px;">
+                    <div class="video-elegant-wrapper" style="background: rgba(255,255,255,0.05); border-radius: 20px; padding: 3px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+                        <div class="video-frame" style="position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden;">
+                            <video
+                                id="hero-hifu-video"
+                                poster="public/images/linde-team.jpg"
+                                preload="metadata"
+                                playsinline
+                                muted
+                                autoplay
+                                loop
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                                <source src="https://storage.googleapis.com/msgsndr/gifJevody1uHQcVkPPPf/media/68bf04bcdd1b2c04a024485f.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- Play/Pause Button -->
+                            <div id="hero-play-button" style="position: absolute; bottom: 15px; right: 15px; width: 40px; height: 40px; background: rgba(0,0,0,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(10px);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M8 5v14l11-7L8 5z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
                     <a href="#observ520" class="btn-primary" style="padding: 18px 45px; font-size: 1.15rem; border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 60px rgba(146, 245, 248, 0.2); background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);">Book Consultation (£25 redeemable)</a>
                 </div>
-                
+
                 <div class="trust-badges">
                     <div class="badge">
                         <span class="badge-number">5.0★</span>
@@ -2657,33 +2683,12 @@
             </div>
 
             <div class="video-content">
-                <div class="video-container">
-                    <div class="video-elegant-wrapper">
-                        <div class="video-frame" style="position: relative;">
-                            <video
-                                id="hifu-video"
-                                poster="public/images/linde-team.jpg"
-                                preload="metadata"
-                                playsinline
-                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
-                                <source src="https://storage.googleapis.com/msgsndr/gifJevody1uHQcVkPPPf/media/68bf04bcdd1b2c04a024485f.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <!-- Animated Play Button Overlay -->
-                            <div id="play-button-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); cursor: pointer; border-radius: 16px; transition: background 0.3s ease;">
-                                <div class="play-button-circle" style="width: 80px; height: 80px; background: rgba(255,255,255,0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(0,0,0,0.3); animation: pulse 2s infinite;">
-                                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" style="margin-left: 5px;">
-                                        <path d="M5 3l14 9-14 9V3z" fill="#2C3E50"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="video-overlay-badge">
-                            <span style="background: var(--dark-gradient); color: var(--white); padding: 8px 20px; border-radius: var(--radius-xl); font-size: var(--body-xs); font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                                ▶ HIFU Treatment in Progress
-                            </span>
-                        </div>
-                    </div>
+                <!-- Treatment Process Overview -->
+                <div style="text-align: center; margin: 40px 0;">
+                    <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 20px;">What to Expect</h3>
+                    <p style="color: var(--text-light); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                        Experience our professional Ultraformer III procedure - a comfortable 60-90 minute treatment that delivers natural, progressive results over 90 days.
+                    </p>
                 </div>
 
                 <div style="max-width: 1000px; margin: 50px auto 0;">
@@ -4222,6 +4227,40 @@
                 // You could replace with a placeholder image here
             });
         });
+
+        // Hero Video Controls
+        const heroVideo = document.getElementById('hero-hifu-video');
+        const heroPlayButton = document.getElementById('hero-play-button');
+
+        if (heroVideo && heroPlayButton) {
+            // Update play button icon based on video state
+            function updatePlayButton() {
+                if (heroVideo.paused) {
+                    heroPlayButton.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="white"/></svg>';
+                } else {
+                    heroPlayButton.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="5" width="4" height="14" fill="white"/><rect x="14" y="5" width="4" height="14" fill="white"/></svg>';
+                }
+            }
+
+            // Toggle play/pause
+            heroPlayButton.addEventListener('click', function() {
+                if (heroVideo.paused) {
+                    heroVideo.play();
+                } else {
+                    heroVideo.pause();
+                }
+                updatePlayButton();
+            });
+
+            // Update button when video state changes
+            heroVideo.addEventListener('play', updatePlayButton);
+            heroVideo.addEventListener('pause', updatePlayButton);
+
+            // Start video automatically (muted for autoplay)
+            heroVideo.play().catch(function() {
+                // Autoplay was prevented, that's ok
+            });
+        }
     </script>
 </body>
 </html>
