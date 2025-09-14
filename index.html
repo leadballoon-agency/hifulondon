@@ -254,6 +254,12 @@
         @media (max-width: 480px) {
             .header {
                 min-height: 100svh; /* Use small viewport height for mobile */
+                min-height: 100vh; /* Fallback */
+                padding: 30px 0;
+            }
+
+            .header-content {
+                padding: 60px 0 40px;
             }
         }
 
@@ -267,17 +273,17 @@
 
         .header h1 {
             font-family: var(--font-heading);
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 600;
-            margin-bottom: var(--space-sm);
-            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            line-height: 1.1;
             letter-spacing: -0.02em;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         @media (min-width: 480px) {
             .header h1 {
-                font-size: 2.3rem;
+                font-size: 2.8rem;
             }
         }
         
@@ -827,7 +833,12 @@
             /* Comprehensive Mobile Fixes */
             
             /* Typography Scale for Mobile */
-            h1, .header h1 {
+            .header h1 {
+                font-size: 2.8rem !important;
+                line-height: 1.1 !important;
+            }
+
+            h1:not(.header h1) {
                 font-size: 2.2rem !important;
                 line-height: 1.2 !important;
             }
@@ -969,37 +980,66 @@
         
         /* Small Mobile Devices */
         @media (max-width: 480px) {
-            /* Even smaller typography */
-            h1, .header h1 {
+            /* Hero section should remain prominent */
+            .header h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.1 !important;
+                margin-bottom: 20px !important;
+            }
+
+            .header .subtitle {
+                font-size: 1.1rem !important;
+                margin-bottom: 30px !important;
+                padding: 0 20px !important;
+            }
+
+            /* Other h1s and h2s can be smaller */
+            h1:not(.header h1) {
                 font-size: 1.8rem !important;
             }
-            
+
             h2 {
                 font-size: 1.5rem !important;
             }
-            
+
             h3 {
                 font-size: 1.25rem !important;
             }
-            
+
             .section {
                 padding: 40px 0 !important;
             }
-            
+
             /* Container extra small */
             .container {
                 padding: 0 15px !important;
             }
-            
-            /* Stack trust badges vertically */
+
+            /* Keep trust badges in 2x2 grid on mobile */
             .trust-badges {
-                flex-direction: column !important;
-                gap: 15px !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+                max-width: 320px !important;
+                margin: 30px auto !important;
             }
-            
+
             .badge {
-                width: 100% !important;
-                max-width: 200px !important;
+                padding: 12px 8px !important;
+                min-height: 70px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+
+            /* Hero buttons on mobile */
+            .header .btn-primary,
+            .header .btn-secondary {
+                display: block !important;
+                width: 90% !important;
+                max-width: 280px !important;
+                margin: 10px auto !important;
+                padding: 16px 24px !important;
+                font-size: 1.1rem !important;
             }
             
             /* Video container */
